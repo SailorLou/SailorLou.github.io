@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Disclainer"
+title:      "My first blog and Disclainer"
 subtitle:   "my first blog"
 date:       2018-10-31 22:00:00
 author:     "Sailor"

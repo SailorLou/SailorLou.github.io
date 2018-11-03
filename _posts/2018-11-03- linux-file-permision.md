@@ -11,4 +11,4 @@ tags:
 
 ## Linux 文件权限的总结
 这是我用思维导图对linux 系统下文件权限的相关总结：
-![](./image/linux-file-permission.png)
+![](https://sailorlou.github.io/image/linux-file-permission.png)

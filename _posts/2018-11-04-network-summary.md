@@ -21,16 +21,16 @@ tags:
 
 ## 计算机网络概述
 
-![overview](../image/network/network_overview.png)
+![overview](https://sailorlou.github.io/image/network/network_overview.png)
 
 ## 物理层
-![](../image/network/network_physics_layer.png)
+![物理层](../image/network/network_physics_layer.png)
 
 ## 数据链路层
-![物理层](../image/network/network_data_link_layer.png)
+![数据链路层](../image/network/network_data_link_layer.png)
 
 ## 网络层
-![](../image/network/network_net_layer.png)
+![网络层](../image/network/network_net_layer.png)
 
 ## 传输层
 ![传输层](../image/network/netword_transport_layer.png)

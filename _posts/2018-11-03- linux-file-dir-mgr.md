@@ -9,7 +9,7 @@ tags:
     linux
 ---
 ## 1.0 Linux 目录配置
-###1.1 Filesystem Hierarchy Standard (FHS)标准是linux目录配置的依据：
+### 1.1 Filesystem Hierarchy Standard (FHS)标准是linux目录配置的依据：
 ![](../image/linux/linux-fhs-dir-definition.png)
 
 - 可分享的：可以分享给其他系统挂载使用的目录，所以包括执行文件与用户的邮件等数据， 是能够分享给网络上其他主机挂载用的目录；
@@ -46,7 +46,7 @@ drwxr-xr-x  3 sailor sailor 4096 11月  4 09:59 image
 这是我用思维导图对linux文件权限的相关总结：
 ![](../image/linux/linux-file-permission.png)
 
-## 文件和目录管理的相关命令
+## 3 文件和目录管理的相关命令
 ![](../image/linux/linux-file-dir-commands.png)
 
 

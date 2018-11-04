@@ -21,22 +21,22 @@ tags:
 
 ## 计算机网络概述
 
-![](../iamge/network/network_overview.png)
+![](../image/network/network_overview.png)
 
 ## 物理层
-![](../iamge/network/network_physics_layer.png)
+![](../image/network/network_physics_layer.png)
 
 ## 数据链路层
-![](../iamge/network/network_data_link_layer.png)
+![](../image/network/network_data_link_layer.png)
 
 ## 网络层
-![](../iamge/network/network_net_layer.png)
+![](../image/network/network_net_layer.png)
 
 ## 传输层
-![](../iamge/network/netword_transport_layer.png)
+![](../image/network/netword_transport_layer.png)
 
 ## 应用层
 ![](../iamge/network/network_app_layer.png)
 
 ## 网络安全
-![](../iamge/network/network_safty.png)
+![](../image/network/network_safty.png)

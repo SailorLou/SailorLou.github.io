@@ -36,7 +36,7 @@ tags:
 ![](../image/network/netword_transport_layer.png)
 
 ## 应用层
-![](../iamge/network/network_app_layer.png)
+![](../image/network/network_app_layer.png)
 
 ## 网络安全
 ![](../image/network/network_safty.png)

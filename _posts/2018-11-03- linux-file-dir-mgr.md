@@ -6,7 +6,7 @@ date:       2018-10-31 22:00:00
 author:     "Sailor"
 header-img: ""
 tags:
-    -Linux
+    linux
 ---
 ## 1.0 Linux 目录配置
 ###1.1 Filesystem Hierarchy Standard (FHS)标准是linux目录配置的依据：

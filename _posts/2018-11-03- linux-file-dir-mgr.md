@@ -35,7 +35,7 @@ tags:
 ![](https://sailorlou.github.io/image/linux/linux-var-dir-def.png)
 ### 1.5 目录树
 在Linux底下，所有的文件与目录都是由根目录开始的，然后再一个一个的分支下来，有点像是树枝状
-![](../image/linux/linux-dir-tree-def.png)
+![](https://sailorlou.github.io/image/linux/linux-dir-tree-def.png)
 ## 2 Linux 文件权限
 敲以下命令可以列出文件信息：
 

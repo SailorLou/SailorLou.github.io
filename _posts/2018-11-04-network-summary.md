@@ -21,22 +21,22 @@ tags:
 
 ## 计算机网络概述
 
-![overview](https://sailorlou.github.io/image/network/network_overview.png)
+![](https://sailorlou.github.io/image/network/network_overview.png)
 
 ## 物理层
-![物理层](https://sailorlou.github.io/image/network/network_physics_layer.png)
+![](https://sailorlou.github.io/image/network/network_physics_layer.png)
 
 ## 数据链路层
-![数据链路层](https://sailorlou.github.io/image/network/network_data_link_layer.png)
+![](https://sailorlou.github.io/image/network/network_data_link_layer.png)
 
 ## 网络层
-![网络层](https://sailorlou.github.io/image/network/network_net_layer.png)
+![](https://sailorlou.github.io/image/network/network_net_layer.png)
 
 ## 传输层
-![传输层](https://sailorlou.github.io/image/network/netword_transport_layer.png)
+![](https://sailorlou.github.io/image/network/netword_transport_layer.png)
 
 ## 应用层
-![应用层](https://sailorlou.github.io/image/network/network_app_layer.png)
+![](https://sailorlou.github.io/image/network/network_app_layer.png)
 
 ## 网络安全
-![网络安全](https://sailorlou.github.io/image/network/network_safty.png)
+![](https://sailorlou.github.io/image/network/network_safty.png)

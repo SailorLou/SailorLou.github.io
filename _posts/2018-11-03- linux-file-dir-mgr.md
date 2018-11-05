@@ -8,6 +8,12 @@ header-img: ""
 tags:
     linux
 ---
+
+本文主要是针对linux 文件和目录的总结，主要包括：
+- 目录配置，介绍每一个目录的功能用途
+- 文件权限，文件信息和文件权限的设置和修改
+- 文件和目录操作的相关命令
+
 ## 1.0 Linux 目录配置
 ### 1.1 Filesystem Hierarchy Standard (FHS)标准是linux目录配置的依据：
 ![](https://sailorlou.github.io/image/linux/linux-fhs-dir-definition.png)

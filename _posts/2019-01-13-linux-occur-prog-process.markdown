@@ -52,11 +52,11 @@ tags:
 
 ## 2 进程结构  
 ### 2.1 内核中的进程结构   
-![](https://sailorlou.github.io/_posts/occ/process_structure_from_kernel.PNG)
+![](https://sailorlou.github.io/image/occ/process_structure_from_kernel.PNG)
 
 ### 2.2进程结构和IO 操作  
-![](https://sailorlou.github.io/_posts/occ/process_structure.PNG)
-![](https://sailorlou.github.io/_posts/occ/process_structure_io.PNG)
+![](https://sailorlou.github.io/image/occ/process_structure.PNG)
+![](https://sailorlou.github.io/image/occ/process_structure_io.PNG)
 
 ## 3 进程启动
 在进程的main函数之前内核会启动。
@@ -91,7 +91,7 @@ tags:
 |是否自动调用终止函数|是|是|否|
 
 ### 5 进程常见状态
-![](./occ/process_state.PNG)
+![](https://sailorlou.github.io/image/occ/process_state.PNG)
 - 运行状态
     - ps命令的stat列为值R
 - 等待状态
@@ -164,9 +164,10 @@ l      //多线程，克隆线程（使用 CLONE_THREAD, 类似 NPTL pthreads）
  - 登记的多个终止函数执行顺序以栈的方式执行，先登记的后执行
 
 ### 8.2 进程标识
-![](./occ/process_get_ids.PNG)
+![](https://sailorlou.github.io/image/occ/process_get_ids.PNG)
 
 ### 8.3 创建进程     
+
 ```c
  #include <sys/types.h>
  #include <unistd.h>
@@ -180,6 +181,7 @@ l      //多线程，克隆线程（使用 CLONE_THREAD, 类似 NPTL pthreads）
 ```
 fork 创建新进程，该函数被调用一次，但返回两次，父子进程那个先运行由系统调度决定，且子进程复制父进程的内存空间.
 vfork 创建子进程，但子进程先运行且不复制父进程的内存空间.
+
 #### 8.3.1 子进程的继承属性
  - 用户信息和权限
  - 目录信息
@@ -189,7 +191,8 @@ vfork 创建子进程，但子进程先运行且不复制父进程的内存空�
  - 资源限制
  - 堆，栈和数据段
  - 共享代码段
- ![](https://sailorlou.github.io/_posts/occ/process_fork_inherit.PNG)
+ ![](https://sailorlou.github.io/image/occ/process_fork_inherit.PNG)
+
  #### 8.3.2 子进程的特有属性
   - 进程ID
   - 锁信息
@@ -197,10 +200,11 @@ vfork 创建子进程，但子进程先运行且不复制父进程的内存空�
   - 未决信号
 
  #### 8.3.3 操作文件时内核结构变化
+
  - 子进程只继承父进程的文件描述表，不继承但共享文件表项和i-node。
  - 父进程创建一个子进程后，文件表项中的引用计数器加1变成2，当父进程作close操作后，计数器减一，子进程还是可以使用文件表项，只有当计数器为0时才会释放文件表项。也就是说，fork的另一个特性是所有由父进程打开的描述符都被复制到子进程中。父、子进程中相同编号的文件描述符在内核中指向同一个file结构体，也就是说，file结构体的引用计数要增加。
  - fork()函数调用完成以后父进程的虚拟存储空间被拷贝给了子进程的虚拟存储空间，因此也就实现了共享文件等操作。但是虚拟的存储空间映射到物理存储空间的过程中采用了写时拷贝技术（具体的操作大小是按着页控制的），该技术主要是将多进程中同样的对象（数据）在物理存储其中只有一个物理存储空间，而当其中的某一个进程试图对该区域进行写操作时，内核就会在物理存储器中开辟一个新的物理页面,将需要写的区域内容复制到新的物理页面中，然后对新的物理页面进行写操作。这时就是实现了对不同进程的操作而不会产生影响其他的进程，同时也节省了很多的物理存储器。
- ![](https://sailorlou.github.io/_posts/occ/process_forc_file_table.PNG)
+ ![](https://sailorlou.github.io/image/occ/process_forc_file_table.PNG)
 
  ```c
  int main (void)
@@ -246,8 +250,7 @@ pid_t waitpid(pid_t pid,int *status，int options);
 ```
 ### 参数 status
 参数传空时，代表任意状态结束的子进程，若不为空，则代表指定状态结束的子进程。
-wait获取staus后检测处理
-宏定义  描述
+wait获取staus后检测处理  
 - WIFEXITED(status) 如果进程子进程正常结束，返回一个非零值
 - WEXITSTATUS(status) 如果WIFEXITED非零，返回子进程退出码
 - WIFSIGNALED(status) 子进程因为捕获信号而终止，返回非零值
@@ -300,7 +303,7 @@ int execvp(const char *file, char *const argv[])
 - 当进程调用一种exec函数时，该进程完全由新程序代换，替换原有的进程的正文，而新程序则从其main函数开始调用，因为调用exec并不创建新进程，所以前后的进程ID并不改变，exec只是用另一个新的程序替换了当前的进程正文，数据，堆和栈段。
 
 - 函数关系如下
-![](https://sailorlou.github.io/_posts/occ/exec_func_relationship.PNG)
+![](https://sailorlou.github.io/image/occ/exec_func_relationship.PNG)
 
 
 ```c
@@ -356,5 +359,5 @@ int system(const char* command);
 - 等同于 /bin/bash -c "cmd" 或者 exec（"bash"，"-c","cmd")：
 
 ### 8.5 函数调用和进程状态的关系
-![](https://sailorlou.github.io/_posts/occ/funct_status_relationship.PNG)
+![](https://sailorlou.github.io/image/occ/funct_status_relationship.PNG)
 

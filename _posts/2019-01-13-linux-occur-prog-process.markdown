@@ -35,11 +35,11 @@ tags:
         - [8.2 进程标识](#82-进程标识)
         - [8.3 创建进程](#83-创建进程)
             - [8.3.1 子进程的继承属性](#831-子进程的继承属性)
-        - [8.3 wait 函数](#83-wait-函数)
+        - [8.4 wait 函数](#83-wait-函数)
         - [参数 status](#参数-status)
-        - [8.4 exec 函数](#84-exec-函数)
-        - [8.5 system 函数](#85-system-函数)
-        - [8.5 函数调用和进程状态的关系](#85-函数调用和进程状态的关系)
+        - [8.5 exec 函数](#84-exec-函数)
+        - [8.6 system 函数](#85-system-函数)
+        - [8.7 函数调用和进程状态的关系](#85-函数调用和进程状态的关系)
 
 <!-- /TOC -->
 
@@ -124,6 +124,7 @@ tags:
 
 ## 7 进程相关指令介绍
  ### 7.1 ps 
+ 
 $ ps -aux 查看进程的ID,进程的用户ID，进程状态和进程的command 
 ps -ef 是用标准的格式显示进程的  
 ps aux 是用BSD的格式来显示    
@@ -164,6 +165,7 @@ l      //多线程，克隆线程（使用 CLONE_THREAD, 类似 NPTL pthreads）
  - 登记的多个终止函数执行顺序以栈的方式执行，先登记的后执行
 
 ### 8.2 进程标识
+
 ![](https://sailorlou.github.io/image/occ/process_get_ids.PNG)
 
 ### 8.3 创建进程     
@@ -198,7 +200,7 @@ vfork 创建子进程，但子进程先运行且不复制父进程的内存空�
   - 锁信息
   - 运行时间
   - 未决信号
-
+        
  #### 8.3.3 操作文件时内核结构变化
 
  - 子进程只继承父进程的文件描述表，不继承但共享文件表项和i-node。
@@ -232,7 +234,9 @@ vfork 创建子进程，但子进程先运行且不复制父进程的内存空�
      exit(0);
 }
  ```
-### 8.3 wait 函数
+ 
+#### 8.4 wait 函数
+
 ```c
 #include <sys/types.h>
 #include <sys/wait.h>
@@ -282,7 +286,7 @@ int main()
  }
 ```
 
-### 8.4 exec 函数
+### 8.5 exec 函数
 ```c
 #include<unlstd.h>
 
@@ -344,7 +348,7 @@ int main()
  }
 ```
 
-### 8.5 system 函数
+### 8.6 system 函数
 
 ```c
 #include<stdlib.h>
@@ -358,6 +362,6 @@ int system(const char* command);
 - system 函数内部构件一个子进程，由子进程调用exec函数
 - 等同于 /bin/bash -c "cmd" 或者 exec（"bash"，"-c","cmd")：
 
-### 8.5 函数调用和进程状态的关系
+### 8.7 函数调用和进程状态的关系
 ![](https://sailorlou.github.io/image/occ/funct_status_relationship.PNG)
 

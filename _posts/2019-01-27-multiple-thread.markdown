@@ -673,8 +673,11 @@ int pthread_rwlock_trywrlock(pthread_rwlock_t *rwlock);
  - 条件变量通过允许线程阻塞和等待另一个线程发送信号的方法弥补了互斥锁的不足.
  - 条件变量内部是一个等待队列，放置等待的线程，线程在条件变量上等待和通知，互斥锁用来保护等待队列（对等待队列上锁），条件变量通常和互斥锁一起使用.
  - 条件变量允许线程等待特定条件发生，当条件不满足时，线程通常先进入阻塞状态，等待条件发生变化，一但其他的某一个线程改变了条件，可唤醒一个或多个阻塞的线程。
+
  - 条件变量的原理实现
+
  ```c
+
  class Condition
  {
      int numWaiting =0;
@@ -702,16 +705,17 @@ Condition::Signal()
 //其中pthread_cond_wait函数内部流程可以理解为：
 pthread_cond_wait(cond,mutex)
 {
-    1.unlock(mutex)
-    2.lock(mutex)
-    3.将线程自己插入到条件变量的等待队列中
-    4.unlock（mutex)
-    5.当前等待的线程阻塞《==等其他线程通知唤醒
-    6.在唤醒后，lock(&mutex)；
-    7.从等待队列中删除线程自己
+    1.unlock(mutex) 
+    2.lock(mutex) 
+    3.将线程自己插入到条件变量的等待队列中 
+    4.unlock（mutex) 
+    5.当前等待的线程阻塞《==等其他线程通知唤醒 
+    6.在唤醒后，lock(&mutex)； 
+    7.从等待队列中删除线程自己 
 }
 
  ```
+
  - 条件变量的数据类型：pthread_cond_t
 
  - 条件变量的创建和销毁

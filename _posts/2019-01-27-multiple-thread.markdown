@@ -674,7 +674,7 @@ int pthread_rwlock_trywrlock(pthread_rwlock_t *rwlock);
  - 条件变量内部是一个等待队列，放置等待的线程，线程在条件变量上等待和通知，互斥锁用来保护等待队列（对等待队列上锁），条件变量通常和互斥锁一起使用.
  - 条件变量允许线程等待特定条件发生，当条件不满足时，线程通常先进入阻塞状态，等待条件发生变化，一但其他的某一个线程改变了条件，可唤醒一个或多个阻塞的线程。
 
- - 条件变量的原理实现
+ - 条件变量的原理实现  
 
  ```c
 
@@ -718,8 +718,8 @@ pthread_cond_wait(cond,mutex)
 
  - 条件变量的数据类型：pthread_cond_t
 
- - 条件变量的创建和销毁
- 
+ - 条件变量的创建和销毁   
+
  ```c
  #include <pthread.h>
 
@@ -727,7 +727,8 @@ int pthread_cond_init(pthread_cond_t *cond, const pthread_condattr_t *restrict a
 int pthreead_cond_destroy(pthread_cond_t *cond);
 
  ```
-- 条件变量的等待操作
+- 条件变量的等待操作   
+
 ```c
 // 线程由于调用wait 函数阻塞，否则释放互斥锁
 int pthread_cond_wait(pthread_cond_t *cond, pthread_mutex_t *restrict mutex);
@@ -744,8 +745,10 @@ struct timespec
     time_t tv_sec;// seconds
     long tv_nsec; //nanoseconds
 }
+
 ```
-- 条件变量的通知
+
+- 条件变量的通知   
 ```c
 #include<pthread.h>
 /*
@@ -762,7 +765,7 @@ int pthread_cond_signal(pthread_cond_t *cond);
 int pthread_cond_broadcast(pthread_cond_t *cond);
 ```
 
-- 条件变量的案列 one :一个线程计算结果，多个线程获取结果
+- 条件变量的案列 one :一个线程计算结果，多个线程获取结果   
 ```c
 #include<thread.h>
 #include<stdio.h>
@@ -853,6 +856,7 @@ int main()
 }
 
 ```
+
 - 条件变量的案列 two :
     - This simple example code demonstrates the use of several Pthread condition variable routines.
     - The main routine creates three threads.

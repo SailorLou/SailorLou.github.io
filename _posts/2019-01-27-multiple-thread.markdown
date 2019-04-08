@@ -719,6 +719,7 @@ pthread_cond_wait(cond,mutex)
  - 条件变量的数据类型：pthread_cond_t
 
  - 条件变量的创建和销毁
+ 
  ```c
  #include <pthread.h>
 

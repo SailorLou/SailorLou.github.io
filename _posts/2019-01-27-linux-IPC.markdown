@@ -1,0 +1,319 @@
+---
+layout:     post
+title:      "IPC"
+subtitle:   "Linux Study"
+date:       2019-01-27 22:00:00
+author:     "Sailor"
+header-img: "img/post-think-try-write.jpg"
+tags:
+    -Linux 并发编程
+---
+
+# Linux 进程间通信
+
+## 1. 进程间通信的概念
+进程是操作系统的概念，每当我们执行一个程序时，对于操作系统来讲就创建了一个进程,在这个过程中，伴随着资源的分配和释放。可以认为进程是一个程序的一次执行过程
+## 2. 进程间通信的应用场景
+- 数据传输：一个进程需要将它的数据发送给另一个进程，发送的数据量在一个字节到几兆字节之间。
+- 共享数据：多个进程想要操作共享数据，一个进程对共享数据的修改，别的进程应该立刻看到。
+- 通知事件：一个进程需要向另一个或一组进程发送消息，通知它（它们）发生了某种事件（如进程终止时要通知父进程）。
+- 资源共享：多个进程之间共享同样的资源。为了作到这一点，需要内核提供锁和同步机制。
+- 进程控制：有些进程希望完全控制另一个进程的执行，此时控制进程希望能够拦截另一个进程的所有陷入和异常，并能够及时知道它的状态改变。
+
+## 3. 进程间通信的方式概述和优缺点分析
+
+### 3.1 进程间通信方式的介绍
+### 3.2 进程间通信方式优缺点分析
+
+## 4.进程间通信方式的实现与案例分析
+### 4.1 信号
+
+### 4.1.1 信号的概念
+- 信号（signal）机制是linux系统中最古老的进程间通信机制，解决进程在正常运行过程中被中断的问题，导致进程的处理流程会发生变化。  
+- 信号是软件中断
+- 信号是异步事件
+    - 信号有自己的名称和编号
+    - 信号和异常处理机制
+
+### 4.1.2 信号的发生来源
+- 硬件来源，比如按一下键盘灯，信号一般由硬件驱动程序产生。
+- 软件来源：最程勇的发送信号的系统函数由kill(),raise(),alarm()和setitimer()等函数，还包括一些非法运算等操作，软件设置条件（比如gdb调试过程，**并且信号是由内核产生** 。）
+
+### 4.1.3 信号的定义或分类 和命令行
+- 用kill -l 命令可以在命令行中查看信号类别
+- 信号的分类
+   信号虽然没有优先级之分，但有可靠和非可靠之分  
+    - 不可靠信号：在1到31 之间的信号，发送的信号可能会丢失，也称作非实时信号。
+    - 31 之后即SIGRTMIN和SIGRTMAX之间的信号都是可靠信号，可靠信号克服了信号可能丢失的问题，也称作实时信号。
+- 一般信号的定义可以在一下目录找到：
+    /usr/include/bits/signum.h
+- 命令行杀死进程
+    - kill -SIGSTOP 进程号
+    - kill -19 进程号 /kill -SIGKILL 进程号
+- 主要信号的介绍
+    - SIGCHLD 信号
+        - 子进程状态发生变化（子进程结束）产生该信号，父进程需要使用wait 调用来等待子进程结束并回收它，从而避免僵尸进程.
+    - SIGINT   ctrl +c  终止信号
+    - 
+
+### 4.1.4 进程可以通过三种方式来处理一个信号
+- 忽略信号
+    - SIGKILL 和 SIGSTOP 永远不能被忽略
+    - 忽略硬件异常
+    - 进程启动时 SIGUSER1 和 SIGUSER2两个信号被忽略
+- 执行默认操作
+    每一个信号有默认动作，大部分信号默认动作是终止进程，man 7 signal  在第七页，所以直接用 man 7
+- 捕获信号
+    - 告诉内核出现信号时调用自己的处理函数
+    - SIGKILL 和 SIGSTOP 不能被捕获
+    - 相关函数
+```c
+# include <signal.h>
+/*
+ *返回：若成功则返回先前的信号处理函数指针，出错则返回SIG_ERR.
+ *功能：向内核登记信号处理函数
+ *signo:要登记信号的信号值
+ *func 信号处理函数，SIG_IGN 忽略信号；SIG_DFL 采用系统默认处理信号
+**/
+void (*signal(int signo,void(*func)(int))(int)):
+// OR
+ typedef void  (* sighandler_t) (int);
+sighandler_t signal (int signum   //要注册的信号
+,sighandler_t handler);   
+
+// 返回值：若成功则返回0，若出错则返回-1
+// 若act指针非空，则要修改其动作。如果oact指针非空，则系统经由oact指针返回该信号的上一个动作
+#include <signal.h>
+int sigaction( int signo, const struct sigaction *restrict act, struct sigaction *restrict oact);
+
+struct sigaction
+{
+    void    (*sa_handler)(int);    /* addr of signal handler, or SIG_IGN, or SIG_DFL */
+    sigset_t    sa_mask;           /* additional signals to block */
+    int    sa_flags;               /* signal options */
+
+    /* alternate handler */
+    void    (*sa_sigaction)(int, siginfo_t *, void *);
+};
+
+siginfo_t
+{ 
+    int si_signo; /* Signal number */ 
+    int si_errno; /* An errno value */ 
+    int si_code; /* Signal code */ 
+    id_t si_pid; /* Sending process ID */
+    uid_t si_uid; /* Real user ID of sending process */ 
+    int si_status; /* Exit value or signal */ 
+    clock_t si_utime; /* User time consumed */ 
+    clock_t si_stime; /* System time consumed */ 
+    sigval_t si_value; /* Signal value */ 
+    int si_int; /* POSIX.1b signal */ 
+    void * si_ptr; /* POSIX.1b signal */ 
+    void * si_addr; /* Memory location which caused fault */
+    int si_band; /* Band event */ 
+    int si_fd; /* File descriptor */ 
+}
+
+```
+sa_sigaction字段是一个替代的信号处理程序，当在sigaction结构中sa_flags使用了SA_SIGINFO标志时，使用该信号处理程序。对于sa_sigaction字段和sa_handler字段这两者，其实现可能使用同一存储区，所以应用程序只能一次使用这两个字段中的一个。
+
+通常，按下列方式调用信号处理程序：
+
+案列：回收子进程
+```c
+void sig_handler(int signo)
+{
+    prinf("Child process id=%d deaded,signal number = %d\n",getpid(),signo);
+    //当父进程捕获到SIGCHILD 信号后要调用wait函数
+    // 来回收子进程，否则子进程会生成僵尸进程.
+    wait(0);
+}
+
+int main()
+{
+    if(signal(SIGCHLD,sig_handle) == SIG_ERR))
+    {
+        perror("signal error\n");
+    }
+
+    pid_t pid = fork();
+    if(pid<0)
+    {
+        perror("fork error\n");
+        exit(1);
+    }
+    else if(pid>0)//Parent process
+    {
+        sleep(2);
+    }
+    else// child process
+    {
+        // Don't Do anything to
+        // make child process stop firstly
+    }
+
+    return 0;
+}
+```
+
+### 4.1.5 信号的发送
+发送信号的主要函数有：kill()、raise()、 sigqueue()、alarm()、setitimer()以及abort()。
+**kill() AND raise()**
+```c
+#include<signal.h>
+
+/*
+ * 返回：成功返回0，出错返回-1
+ * 功能：向指定的进程发送某一个信号
+ * signo：是发送的信号值,如果值为0 常用来检测待定的进程是否存在.
+ * pid 取值
+ * pid>0 进程ID为pid的进程
+ * pid=0 同一个进程组的进程
+ * pid<0 pid!=-1 进程组ID为 -pid的所有进程
+ * pid=-1 除发送进程自身外，所有进程ID大于1的进程
+**/
+int kill(pid_t pid,int signo);
+/*
+ * 返回：成功返回0，出错返回-1
+ * 功能：向进程本身发送某一个信号
+ * signo：是发送的信号值
+ * 相当于kill（getpid(),signo);
+**/
+int raise(int signo);
+
+/*
+ * 返回：成功返回0，出错返回-1
+ * 功能：新的发送信号系统调用,主要是针对实时信号提出的支持信号带有参数,
+ *      与函数sigaction()配合使用
+ * signo：是发送的信号值
+ * sigqueue的第1个参数是指定接收信号的进程id，第2个参数确定即将发送的信号，第3个参
+ * 数是一个联合数据结构union sigval，指定了信号传递的参数，即通常所说的4字节值;
+ * sigqueue()比kill()传递了更多的附加信息，但sigqueue()只能向一个进程发送信号，而
+ * 不能发送信号给一个进程组
+**/
+int sigqueue(pid_t pid, int sig, const union sigval value);
+
+typedef union sigval
+{        
+   int sival_int;     
+   void *sival_ptr; 
+}sigval_t; 
+
+```
+案列 sigaction 和 sigqueue的应用，需要伴随信号发送额外的数据
+```c
+#include <unistd.h>
+#include <sys/stat.h> 
+#include <sys/wait.h> 
+#include <sys/types.h> 
+#include <fcntl.h> 
+#include <stdlib.h>
+#include <stdio.h> 
+#include <errno.h> 
+#include <string.h> 
+#include <signal.h> 
+
+//能够接受额外数据的信号处理函数签名
+void sig_handler(int sig,siginfo_t *s_t,void *p)
+{ 
+    if(s_t == nullptr)
+        return;
+
+    int tmp = 0; 
+    tmp = s_t->si_int; //si_int和si_value.sival_int是一样的--针对额外数据是int的时候。
+    printf("process id= %d receive a signal = %d and extral value is : %d\n", getpid(),sig,tmp);
+}
+
+int main(int argc, char *argv[])
+{ 
+    pid_t pid;
+    int ret = 0;
+    union sigval mysigval;//用来存放额外数据
+    struct sigaction act;//用来注册信号 /*使用sigaction必须要初始化的三个成员*/
+    act.sa_sigaction = sig_handler;//指定回调函数 
+    act.sa_flags = SA_SIGINFO;//SA_SIGINFO，信号处理函数才能接受额外数据
+    sigemptyset(&act.sa_mask);//清空屏蔽字
+    if(sigaction(SIGINT,&act,NULL) < 0)//注册信号--指定处理函数
+    { 
+        perror("sigaction error!\n"); 
+        exit(-1); 
+    }
+
+    pid = fork();
+
+    if(-1 == pid)
+    { 
+        perror("fork");
+        exit(-1); 
+    }
+    else if(0 == pid)
+    { 
+        mysigval.sival_int = 698;//设置要随着信号发送的额外数据
+        for(int i = 0;i < 6;i++)//子进程发送十次信号--SIGINT是不可靠信号--传送有点慢
+        {
+            ret = sigqueue(getppid(),SIGINT,mysigval);//开始发送信号
+
+           if(ret != 0)//发送失败
+           { 
+                perror("sigqueue"); 
+                exit(-1);
+           } 
+           else
+           {
+                //返回0表示信号发送成功
+                printf("send ok!\n"); 
+                sleep(1);
+                mysigval.sival_int +=10;
+           }
+        }
+
+    } 
+    else if(pid > 0)
+    {
+        while(true);    
+    }
+     return 0;
+}
+
+```
+**定时器**
+```c
+#include <unistd.h>
+//返回：0或以前设置的定时器的余留秒数
+// 信号由内核产生，当定时器超时，会给进程本省发送一个SIGALARM 信号，不是循环，如果需要循环，需要在处理函数中继续设置定时器
+// 参数为0，取消以前设置的定时器
+unsigned int alarm(unsigned int seconds)
+```
+
+现在的系统中很多程序不再使用alarm调用，而是使用setitimer调用来设置定时器，用getitimer来得到定时器的状态，这两个调用的声明格式如下：
+```c
+#include <sys/time.h>
+int getitimer(int which, struct itimerval *value);
+
+int setitimer(int which, const struct itimerval *value, struct itimerval *ovalue);
+```
+该系统调用给进程提供了三个定时器，它们各自有其独有的计时域，当其中任何一个到达，就发送一个相应的信号给进程，并使得计时器重新开始。三个计时器由参数which指定，如下所示：
+- TIMER_REAL：按实际时间计时，计时到达将给进程发送SIGALRM信号。
+- ITIMER_VIRTUAL：仅当进程执行时才进行计时。计时到达将发送SIGVTALRM信号给进程。
+- ITIMER_PROF：当进程执行时和系统为该进程执行动作时都计时。与ITIMER_VIR-TUAL是一对，该定时器经常用来统计进程在用户态和内核态花费的时间。计时到达将发送SIGPROF信号给进程。 
+
+定时器中的参数value用来指明定时器的时间，其结构如下：
+```c
+struct itimerval
+ {
+    struct timeval it_interval; /* 下一次的取值 */
+    struct timeval it_value; /* 本次的设定值 */
+};
+```
+ 
+
+该结构中timeval结构定义如下：
+```c
+struct timeval
+{
+    long tv_sec; /* 秒 */
+    long tv_usec; /* 微秒，1秒 = 1000000 微秒*/
+
+};
+```
+在setitimer 调用中，参数ovalue如果不为空，则其中保留的是上次调用设定的值.定时器将it_value递减到0时，产生一个信号，并将it_value的值设定为it_interval的值，然后重新开始计时，如此往复。当it_value设定为0时，计时器停止，或者当它计时到期，而it_interval 为0时停止。调用成功时，返回0；错误时，返回-1，并设置相应的错误代码errno。

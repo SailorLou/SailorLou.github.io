@@ -723,15 +723,16 @@ pthread_cond_wait(cond,mutex)
  ```c
  #include <pthread.h>
 
-int pthread_cond_init(pthread_cond_t *cond, const pthread_condattr_t *restrict attr);
+int pthread_cond_init(pthread_cond_t *cond, const pthread_condattr_t *attr);
 int pthreead_cond_destroy(pthread_cond_t *cond);
 
  ```
-- 条件变量的等待操作   
+- 条件变量的等待操作       
 
 ```c
+
 // 线程由于调用wait 函数阻塞，否则释放互斥锁
-int pthread_cond_wait(pthread_cond_t *cond, pthread_mutex_t *restrict mutex);
+int pthread_cond_wait(pthread_cond_t *cond, pthread_mutex_t * mutex);
 
 int pthread_cond_timewait
 (
@@ -749,6 +750,7 @@ struct timespec
 ```
 
 - 条件变量的通知   
+
 ```c
 #include<pthread.h>
 /*
@@ -766,6 +768,7 @@ int pthread_cond_broadcast(pthread_cond_t *cond);
 ```
 
 - 条件变量的案列 one :一个线程计算结果，多个线程获取结果   
+
 ```c
 #include<thread.h>
 #include<stdio.h>

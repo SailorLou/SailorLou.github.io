@@ -11,6 +11,23 @@ tags:
 
 # Regular Expression
 
+<!-- TOC -->
+
+- [Regular Expression](#regular-expression)
+    - [what is Regular Expression?](#what-is-regular-expression)
+    - [The research object of regex: string or text](#the-research-object-of-regex-string-or-text)
+    - [match single character](#match-single-character)
+    - [POSIX Character classes](#posix-character-classes)
+    - [Repetition Match](#repetition-match)
+    - [Boundary constrain character](#boundary-constrain-character)
+    - [Sub-expression](#sub-expression)
+    - [Conditional expression](#conditional-expression)
+    - [Regex Options](#regex-options)
+    - [Regex Priority](#regex-priority)
+    - [C++  std::regex](#c--stdregex)
+
+<!-- /TOC -->
+
 ## what is Regular Expression?
 
  a regular expression is a specific kind of text pattern that you can use with many modern applications and programming languages. You can use them to **verify whether input** fits into the text pattern, to **find** text that **matches** the pattern within a larger body of text, to **replace** text matching the pattern with other text or rearranged bits of the matched text, to split a block of text into a list of subtexts, and to shoot yourself in the foot.  
@@ -33,6 +50,7 @@ Data structure research.
 
 
 ## match single character
+
 | 元字符 | 描述 |  
 |:------ |:------|  
 | . | 匹配除换行符以外的任意字符 | 
@@ -83,6 +101,7 @@ POSIX-Portable Operating System Interface for unix
 
 
 ## Repetition Match
+
 | 元字符 | 描述 |  
 |:------ |:------| 
 |"*"	|"重复零次或更多次"|
@@ -150,6 +169,7 @@ Style   :?(backer-ference)true-regex|false-regex
 Not Regex in all environment can support conditional expression
 
 ## Regex Options
+
 | 名称 | 说明 |  
 |:----------- |:----------| 
 |IgnoreCase(忽略大小写)|匹配时不区分大小写。|
@@ -170,9 +190,6 @@ Not Regex in all environment can support conditional expression
 
 
 说明：正则表达式从左到右进行计算，并遵循优先级顺序，这与算术表达式非常类似。相同优先级的从左到右进行运算，不同优先级的运算先高后低。上表从最高到最低说明了各种正则表达式运算符的优先级顺序。
-
-
-
 
 ## C++  std::regex
 

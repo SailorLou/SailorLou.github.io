@@ -13,6 +13,16 @@ tags:
 
 <!-- TOC -->
 
+- [计算几何之平面凸包计算](#计算几何之平面凸包计算)
+    - [问题描述](#问题描述)
+    - [主要的算法](#主要的算法)
+        - [Graham Scan Algorithm](#graham-scan-algorithm)
+            - [数学知识回顾](#数学知识回顾)
+            - [伪代码](#伪代码)
+            - [算法理解和实现](#算法理解和实现)
+
+<!-- /TOC -->
+
 ## 问题描述
 凸：如果平面的一个子集S被称为是“凸”的，当且仅当对于任意两点p, q ∈ S，线段 pq 都完全属于S，集合S的凸包CH(S)，；  
 问题描述：在平面中给出N个点，找出一个由其中某些点作为顶点组成的凸多边形，恰好能围住所有的N个点。
@@ -20,7 +30,7 @@ tags:
 input = 平面上一组点：p1, p2, p3, p4, p5, p6, p7, p8, p9
 output = 凸包的表示：p4, p5, p8, p2, p9
 
-![](..\image\geo\convex_hull.PNG)
+![](https://sailorlou.github.io/image/geo/convex_hull.PNG)
 
 ## 主要的算法
 主要的算法有：
@@ -35,7 +45,7 @@ output = 凸包的表示：p4, p5, p8, p2, p9
 #### 数学知识回顾
 两个向量的叉乘p1Xp2:
 - |向量c|=|向量a×向量b|=|a||b|sin<a b>
-![](..\image\geo\cross-product.PNG)
+![](https://sailorlou.github.io/image/geo/cross-product.png)
 - 可表示平行四边形的面积，
 - 二维向量看作成z轴值恒为0的三维向量，例如向量OP1(x1,y1,0)，OP2(x2,y2,0)，
 OP1 x OP2 = （0，0，x1y2-x2y1，很明显（0，0，x1y2-x2y1）也是一个向量，并且是垂直于向量Op1和Op2构成的平面的法向量，
@@ -53,7 +63,8 @@ OP1 x OP2 = （0，0，x1y2-x2y1，很明显（0，0，x1y2-x2y1）也是一个�
 - A,B分别在CD 两侧 (CD X CA) *(CD X CB) <= 0
 
 #### 伪代码
-![](..\image\geo\Graham-Scan-algo.PNG)
+![](https://sailorlou.github.io/image/geo/graham-scan-algo.png)
+
 
 
 #### 算法理解和实现

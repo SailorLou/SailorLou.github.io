@@ -11,6 +11,7 @@ tags:
 
 # C/C++ Package Manager -- Conan
 
+
 ## 1 简介
 ## 2 重要概念介绍
 
@@ -108,7 +109,8 @@ class HelloconanConan(ConanFile):
 - 也可以用命令“conan inspect holloconan/1.0.0@lou/testing ” 查看包的元数据
 
 ### 3.4 使用包
-- 创建另外一个文件夹WindowTest，编写测试代码main.cpp，如下
+- 创建另外一个文件夹WindowTest，编写测试代码main.cpp，如下   
+
 ```c
 #include "hello.h"
 
@@ -117,7 +119,7 @@ int main (void) {
 }
 ```
 
-- 添加文件 conanfile.txt 如：
+- 添加文件 conanfile.txt 如：   
 ```
  [requires]
  HelloConan/1.0.0@lou/testing
@@ -136,7 +138,7 @@ int main (void) {
     - conanbuildinfo.cmake
     - conanbuildinfo
 
-- 然后编写CMakeLists.txt文件如下
+- 然后编写CMakeLists.txt文件如下   
 ```
 cmake_minimum_required(VERSION 2.8.12)
 project(TestHelloConan)
@@ -157,7 +159,7 @@ endforeach()
 
 ```
 
-- 运行如下命令构建vs工程
+- 运行如下命令构建vs工程   
 ```
 cmake . -G "Visual Studio 15"
 ```
@@ -275,13 +277,13 @@ class HelloconanConan(ConanFile):
         self.cpp_info.libs = self.collect_libs()
 ```
 
-- 创建包
+- 创建包   
 ```
 >>> conan export-pkg . HelloConan/1.0.0@staticlib/testing
 ```
 
 -测试包   
-创建新目录，main.cpp文件：  
+创建新目录，main.cpp文件：      
 ```c
 #include "hello.h"
 
@@ -289,7 +291,7 @@ int main (void) {
     hello();
 }
 ```
-- 添加文件 conanfile.txt 如：
+- 添加文件 conanfile.txt 如：   
 ```
  [requires]
  HelloConan/1.0.0@staticlib/testing
@@ -302,7 +304,7 @@ int main (void) {
     - conanbuildinfo.cmake
     - conanbuildinfo
 
-- 然后编写CMakeLists.txt文件如下
+- 然后编写CMakeLists.txt文件如下   
 ```
 cmake_minimum_required(VERSION 2.8.12)
 project(TestHelloConan)
@@ -325,7 +327,7 @@ target_link_libraries(TestHelloConan ${CONAN_LIBS})
 
 #### 动态库的创建
 - hello程序的头文件和源文件如同静态库
-- 用如下命令构建动态库
+- 用如下命令构建动态库   
 ```
 g++ -c -fPIC hello.cc -o hello.o
 g++ -shared hello.o -o libhello.so

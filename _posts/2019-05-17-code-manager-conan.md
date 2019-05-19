@@ -13,6 +13,12 @@ tags:
 
 
 ## 1 简介
+
+Conan is a portable package manager, intended for C and C++ developers, but it is able to manage builds from source, dependencies, and precompiled binaries for any language.
+c/c++发展开始并没有现代的包管方案的概念，这部分一直需求一直被忽略。等到开发者想起要解决这个问题时，发现c/c++与硬件结合太过于紧密，支持太多的平台，在平台适配上有大量的工作需要处理，对于一个编译型语言，需要包管理需要能够正确的处理不同的平台上的二进制兼容问题或者源码编译问题，这导致想基于现有的代码来实现一个现代化的c\c++的包管理系统基本上是一个不可能完成的任务。于是开发者很明智的选择了rust。尽管如此，人们还是给出了一些折衷的结局方案，包括linx上的apt，mac上的brew，windows上的nutget等方案。其中apt的方案主要解决二进制分发问题，对版本的控制较弱。其中brew/nutget等已经初具一个现代化包管理系统的雏形了。在这包管理的基础上，出现像conan/vcpkg/buckaroo这样比较优秀的现代化的包管理系统。
+
+本文主要针对window和linux平台探索性的用conan来打包和及其包的应用，及对相关概念的梳理.
+
 ## 2 重要概念介绍
 
 ## 3 在window上的应用
@@ -218,8 +224,8 @@ sudo pip3 install conan
 - install g++
 sudo apt-get install g++
 
-### 静态库
-#### 静态库的创建
+### 4.2静态库
+####  静态库的创建
 
 - 添加头文件 hello.h
 
@@ -342,7 +348,7 @@ g++ -shared hello.o -o libhello.so
 
 
 
-## reference
+## 5 reference
 - https://docs.conan.io
 
 

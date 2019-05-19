@@ -109,17 +109,18 @@ class HelloconanConan(ConanFile):
 - 也可以用命令“conan inspect holloconan/1.0.0@lou/testing ” 查看包的元数据
 
 ### 3.4 使用包
-- 创建另外一个文件夹WindowTest，编写测试代码main.cpp，如下   
+- 创建另外一个文件夹WindowTest，编写测试代码main.cpp，如下      
 
-```c
+```
 #include "hello.h"
 
 int main (void) {
     hello();
-}
+}   
 ```
 
-- 添加文件 conanfile.txt 如：   
+- 添加文件 conanfile.txt 如   
+
 ```
  [requires]
  HelloConan/1.0.0@lou/testing
@@ -138,7 +139,7 @@ int main (void) {
     - conanbuildinfo.cmake
     - conanbuildinfo
 
-- 然后编写CMakeLists.txt文件如下   
+- 然后编写CMakeLists.txt文件如下      
 ```
 cmake_minimum_required(VERSION 2.8.12)
 project(TestHelloConan)
@@ -160,6 +161,7 @@ endforeach()
 ```
 
 - 运行如下命令构建vs工程   
+
 ```
 cmake . -G "Visual Studio 15"
 ```
@@ -247,10 +249,11 @@ void hello() {
 ```
 >>> g++ -c hello.cpp
 >>> ar cr libhello.a hello.o
-```
+```   
 注意：构建静态库时库名的命名libXXX.a，我试着不要lib没成功，不知是什么原因.
 - 构建一个新目录，并添加一个lib 和 include文件夹，并把头文件拷贝到include中，把库文件拷贝到lib目录下
-- 添加conanfile.py文件
+- 添加conanfile.py文件    
+
 ```
 from conans import ConanFile, CMake, tools
 
@@ -278,12 +281,14 @@ class HelloconanConan(ConanFile):
 ```
 
 - 创建包   
+
 ```
 >>> conan export-pkg . HelloConan/1.0.0@staticlib/testing
 ```
 
 -测试包   
-创建新目录，main.cpp文件：      
+创建新目录，main.cpp文件：   
+      
 ```c
 #include "hello.h"
 

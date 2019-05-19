@@ -102,6 +102,7 @@ endef
 “cmd”是这个命令包的名字，其不要和Makefile中的变量重名。在“define”和“endef”中的两行就是命令序列。在define 和　endef　间的部分即是命令主体。
 
 ### 条件判断
+
 - 格式：
 <conditional-directive>
 <text-if-true>
@@ -114,7 +115,7 @@ else
 <text-if-false>
 endif
 
-- 实例
+- 实例   
 
 ```
 # Makefile 内容
@@ -127,17 +128,17 @@ endif
 
 # bash 中执行 make
 $ make
-not equal
+not equal    
 ```
 
 ### Makefile 中的函数
-- 语法如下：
+- 语法如下：    
 
-```
+```    
 $(<function> <arguments>)
 或是
-${<function> <arguments>}   
-```
+${<function> <arguments>}       
+```    
 make支持的函数不多。* arguments*是函数的参数，参数间以逗号“,”分隔，而函数名和参数之间以“空格”分隔
 
 - 常用函数如下：
@@ -147,18 +148,18 @@ make支持的函数不多。* arguments*是函数的参数，参数间以逗号�
 #### 案例1
 - makefile 文件
 
-```
+```    
 app：add.c sub.c mul.c
     gcc add.c sub.c mul.c -o app
 
-```
+```    
 
 - 缺点是:效率低，修改一个文件，所有文件会被全部重新编译
 
 #### 案列 2
 - makefile 是：
 
-```
+```   
 app ： main.o add.o sub.o mul.o
        gcc main.o add.o sub.o mul.o -o app
 main.o:main.c
@@ -170,7 +171,7 @@ sub.o:sub.c
 mul.o:mul.c
        gcc mul.c -c 
 
-```
+```    
 - 工作原理：
     - 检测依赖是否存在，向下搜索下边的规则，如果有规则是用来生成查找的依赖的，执行规则中的命令。
     - 依赖存在，判断是否需要更新,如果目标时间大于依赖时间则不需要，否则需要更新
@@ -178,16 +179,16 @@ mul.o:mul.c
 - 缺点：太冗余
 
 #### 案例3
-
-```
+    
+```    
 obj = main.o add.o sub.o mul.o
 target = app
 $(target):$(obj)
           gcc $(obj) -o $(target)
 %.o:%.c
    gcc -c $< -o $@
-
-```
+    
+```    
 
 - 案列解析
     - 自定义变量 obj=main.o add.o
@@ -205,7 +206,7 @@ $(target):$(obj)
 
 #### 案例4
 
-- makefile文件
+- makefile文件    
 
 ```
 src =$(wildcard ./*.c)
@@ -217,7 +218,7 @@ $(target):$(obj)
 %.o:%.c
    gcc -c $< -o $@
 
-```
+```    
 
 - 案列解析
     - makefile 所有的函数都有返回值
@@ -230,7 +231,7 @@ $(target):$(obj)
 
 #### 案例5
 
-- makefile文件
+- makefile文件    
 
 ```
 src =$(wildcard ./*.c)
@@ -248,8 +249,8 @@ hello:
 .PHONY:clean
 clean:
     -mkdir /abc
-    -rm $(obj) $(target) -f 
-```
+    -rm $(obj) $(target) -f     
+```    
 
 - 命令前加 -：忽略执行失败的命令，继续向下执行其余的命令
 - -f ：强制执行
@@ -266,20 +267,21 @@ clean:
 
 ## gdb调试
 
-- 保留调试信息   
+- 保留调试信息       
 ```
 >>> gcc test.c -o app    
 >>> gcc test.c -o app -g
-```
+```    
 
 -g 会保留函数名和变量名
 
-- 启动gdb   
+- 启动gdb      
+
 格式：gdb 可执行程序的名字   
 如：gdb app   
 给程序传参：set args xx
 
-- 查看代码 --list -l
+- 查看代码 --list -l   
     - 当前文件
         - l
         - l 行号

@@ -128,20 +128,22 @@ endef
 
 - 格式：   
 ```
-conditional directive
-   text-if-true
-endif
+conditional directive   
+   text-if-true   
+endif   
 
-或者
-conditional-directive
-   text-if-true
-else
-   text-if-false  
-endif
+或者   
+conditional-directive   
+   text-if-true   
+else   
+   text-if-false     
+endif      
+
 ```   
+
 - 实例   
 
-```
+```   
 # Makefile 内容
 all:
 ifeq ("aa", "bb")
@@ -152,10 +154,11 @@ endif
 
 # bash 中执行 make
 $ make
-not equal    
-```
+not equal       
+```   
 
 ### 2.8 Makefile 中的函数
+
 - 语法如下：    
 
 ```    
@@ -169,6 +172,7 @@ make支持的函数不多。* arguments*是函数的参数，参数间以逗号�
 ![](https://sailorlou.github.io/image/linux-cplusplus/makefile_math.jpg)
 
 ### 2.9 编写规则分析-实例
+
 #### 2.9.1 案例1
 - makefile 文件
 

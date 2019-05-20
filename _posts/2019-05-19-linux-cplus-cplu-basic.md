@@ -126,8 +126,10 @@ endef
 
 ### 2.7 条件判断
 
-- 格式：   
-```
+- 格式：
+
+```   
+
 conditional directive   
    text-if-true   
 endif   

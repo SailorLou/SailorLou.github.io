@@ -8,6 +8,20 @@ header-img: ""
 tags:
     linux
 ---
+# linux 文件和目录总结
+<!-- TOC -->
+
+- [linux 文件和目录总结](#linux-文件和目录总结)
+    - [1.0 Linux 目录配置](#10-linux-目录配置)
+        - [1.1 Filesystem Hierarchy Standard (FHS)标准是linux目录配置的依据：](#11-filesystem-hierarchy-standard-fhs标准是linux目录配置的依据)
+        - [1.2 根目录 (/) 的意义与内容](#12-根目录--的意义与内容)
+        - [1.3 /usr 的意义与内容：](#13-usr-的意义与内容)
+        - [1.4 /var 的意义与内容](#14-var-的意义与内容)
+        - [1.5 目录树](#15-目录树)
+    - [2 Linux 文件权限](#2-linux-文件权限)
+    - [3 文件和目录管理的相关命令](#3-文件和目录管理的相关命令)
+
+<!-- /TOC -->
 
 本文主要是针对linux 文件和目录的总结，主要包括：
 - 目录配置，介绍每一个目录的功能用途

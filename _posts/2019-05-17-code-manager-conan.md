@@ -10,17 +10,33 @@ tags:
 ---
 
 # C/C++ Package Manager -- Conan
+<!-- TOC -->
 
+- [C/C++ Package Manager -- Conan](#cc-package-manager----conan)
+    - [1 简介](#1-简介)
+    - [2 重要概念介绍](#2-重要概念介绍)
+    - [3 在window上的应用](#3-在window上的应用)
+        - [3.1 前期准备](#31-前期准备)
+        - [3.2 构建库文件](#32-构建库文件)
+        - [3.3 将编译好的库文件构建成包](#33-将编译好的库文件构建成包)
+        - [3.4 使用包](#34-使用包)
+    - [4 在linux上的应用](#4-在linux上的应用)
+        - [4.1 准备工作](#41-准备工作)
+        - [4.2静态库](#42静态库)
+            - [静态库的创建](#静态库的创建)
+            - [动态库的创建](#动态库的创建)
+    - [5 reference](#5-reference)
+
+<!-- /TOC -->
 
 ## 1 简介
 
-Conan is a portable package manager, intended for C and C++ developers, but it is able to manage builds from source, dependencies, and precompiled binaries for any language.
+Conan is a portable package manager, intended for C and C++ developers, but it is able to manage builds from source, dependencies, and precompiled binaries for any language.   
 c/c++发展开始并没有现代的包管方案的概念，这部分一直需求一直被忽略。等到开发者想起要解决这个问题时，发现c/c++与硬件结合太过于紧密，支持太多的平台，在平台适配上有大量的工作需要处理，对于一个编译型语言，需要包管理需要能够正确的处理不同的平台上的二进制兼容问题或者源码编译问题，这导致想基于现有的代码来实现一个现代化的c\c++的包管理系统基本上是一个不可能完成的任务。于是开发者很明智的选择了rust。尽管如此，人们还是给出了一些折衷的结局方案，包括linx上的apt，mac上的brew，windows上的nutget等方案。其中apt的方案主要解决二进制分发问题，对版本的控制较弱。其中brew/nutget等已经初具一个现代化包管理系统的雏形了。在这包管理的基础上，出现像conan/vcpkg/buckaroo这样比较优秀的现代化的包管理系统。
 
 本文主要针对window和linux平台探索性的用conan来打包和及其包的应用，及对相关概念的梳理.
 
 ## 2 重要概念介绍
-
 ## 3 在window上的应用
 ### 3.1 前期准备
 首先在window上安装conan，python，cmake，vs.
@@ -72,7 +88,7 @@ void hello() {
 ```
 conan new holloconan/1.0.0@lou/testing    
 ```
-此时会创建一个conan模板文件conanfile.py，通过修改conanfile.py如下：
+   此时会创建一个conan模板文件conanfile.py，通过修改conanfile.py如下：
 
 ```
 from conans import ConanFile, CMake, tools
@@ -292,7 +308,7 @@ class HelloconanConan(ConanFile):
 >>> conan export-pkg . HelloConan/1.0.0@staticlib/testing
 ```
 
--测试包   
+- 测试包   
 创建新目录，main.cpp文件：   
       
 ```c

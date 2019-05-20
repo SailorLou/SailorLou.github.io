@@ -128,15 +128,15 @@ endef
 
 - 格式：   
 ```
-<conditional-directive>
-<text-if-true>
+conditional directive
+   text-if-true
 endif
 
 或者
-<conditional-directive>
-<text-if-true>
+conditional-directive
+   text-if-true
 else
-<text-if-false>
+   text-if-false  
 endif
 ```   
 - 实例   

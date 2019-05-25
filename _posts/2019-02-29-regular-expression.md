@@ -4,7 +4,8 @@ title:      "Regular Expression"
 subtitle:   
 date:       2019-04-29 22:00:00
 author:     "Sailor"
-header-img: "img/post-think-try-write.jpg"
+categories:  regular expression
+mathjax: false
 tags:
     -Regular Expression
 ---

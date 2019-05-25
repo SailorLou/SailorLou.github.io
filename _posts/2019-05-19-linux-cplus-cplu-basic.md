@@ -4,7 +4,8 @@ title:      "linux c/c++ 程序入门"
 subtitle:   "Linux Study"
 date:       2019-05-19 16:00:00
 author:     "Sailor"
-header-img: "img/post-think-try-write.jpg"
+categories:  linux
+mathjax: false
 tags:
     -Linux c++
 ---

@@ -4,7 +4,8 @@ title:      "Linux 线程"
 subtitle:   "Linux"
 date:       2017-10-31 22:00:00
 author:     "Sailor"
-header-img: "img/post-think-try-write.jpg"
+categories:  linux
+mathjax: false
 tags:
     -linux 并发编程
 ---

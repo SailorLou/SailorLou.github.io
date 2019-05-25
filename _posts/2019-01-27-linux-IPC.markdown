@@ -4,7 +4,8 @@ title:      "IPC"
 subtitle:   "Linux Study"
 date:       2019-01-27 22:00:00
 author:     "Sailor"
-header-img: "img/post-think-try-write.jpg"
+categories:  linux
+mathjax: false
 tags:
     -Linux 并发编程
 ---

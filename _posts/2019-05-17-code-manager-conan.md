@@ -4,7 +4,8 @@ title:      "C++ package management -- conan"
 subtitle:   ""
 date:       2017-10-31 22:00:00
 author:     "Sailor"
-header-img: ""
+categories:  C++ package management
+mathjax: false
 tags:
     c++ package management
 ---

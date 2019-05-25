@@ -4,7 +4,8 @@ title:      "计算几何之凸包算法"
 subtitle:   "凸包算法"
 date:       2019-01-20 22:00:00
 author:     "Sailor"
-header-img: "img/post-think-try-write.jpg"
+categories:  Computation Geometry
+mathjax: false
 tags:
     -计算几何
 ---

@@ -4,7 +4,8 @@ title:      "linux 文件和目录总结"
 subtitle:   "linux 基础学习"
 date:       2017-10-31 22:00:00
 author:     "Sailor"
-header-img: ""
+categories:  linux
+mathjax: false
 tags:
     linux
 ---

@@ -4,7 +4,8 @@ title:      "计算机网络总结"
 subtitle:   "network"
 date:       2017-10-31 22:00:00
 author:     "Sailor"
-header-img: ""
+categories:  network
+mathjax: false
 tags:
     Network
 ---

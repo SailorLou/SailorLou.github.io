@@ -12,9 +12,7 @@ tags:
 
 本文主要是对makefile，gcc 以及gdb的学习
 
-
-
-
+<!-- more -->
 <!-- TOC -->
 
 - [Linux C/C++ 程序基础入门](#linux-cc-程序基础入门)

@@ -11,10 +11,7 @@ tags:
 ---
 
 本文主要对c++ 包管理方法的探讨
-
-
-
-
+<!-- more -->
 <!-- TOC -->
 
 - [C/C++ Package Manager -- Conan](#cc-package-manager----conan)

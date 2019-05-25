@@ -9,10 +9,7 @@ mathjax: false
 tags: Regular-Expression
 ---
 本文主要对正则法则的总结
-
-
-
-
+<!-- more -->
 
 <!-- TOC -->
 

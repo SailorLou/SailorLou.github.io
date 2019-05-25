@@ -6,8 +6,7 @@ date:       2018-10-31 22:00:00
 author:     "Sailor"
 categories:  linux
 mathjax: false
-tags:
-    linux
+tags:  linux
 ---
 
 本文主要介绍linux文件和目录总结

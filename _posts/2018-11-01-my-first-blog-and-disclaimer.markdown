@@ -1,13 +1,15 @@
 ---
-layout:     post
-title:      "My first blog and Disclaimer"
-subtitle:   "my first blog"
-date:       2018-10-31 22:00:00
-author:     "Sailor"
-categories:  introduction
+layout: post
+title:  "My first blog and Disclaimer"
+date:   2018-10-31 22:00:00
+categories: Introduction
+tags: 免责申明
 mathjax: false
-tags: 免责申明 简单介绍
+author: Sailor
 ---
+
+- 目录
+{:toc}
 
 自我介绍和建博客的原因
 

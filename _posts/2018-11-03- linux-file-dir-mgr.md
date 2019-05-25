@@ -9,6 +9,11 @@ mathjax: false
 tags:
     linux
 ---
+
+本文主要介绍linux文件和目录总结
+
+
+
 <!-- TOC -->
 
 - [linux 文件和目录总结](#linux-文件和目录总结)

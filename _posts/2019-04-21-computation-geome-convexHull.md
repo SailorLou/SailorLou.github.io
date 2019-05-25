@@ -7,8 +7,12 @@ author:     "Sailor"
 categories:  Computation-Geometry
 mathjax: false
 tags:
-    -计算几何
+    计算几何
 ---
+
+本文主要对平面凸包的计算的学习
+
+
 
 <!-- TOC -->
 

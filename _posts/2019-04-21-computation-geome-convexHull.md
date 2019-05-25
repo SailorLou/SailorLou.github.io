@@ -4,13 +4,11 @@ title:      "计算几何之凸包算法"
 subtitle:   "凸包算法"
 date:       2019-01-20 22:00:00
 author:     "Sailor"
-categories:  Computation Geometry
+categories:  Computation-Geometry
 mathjax: false
 tags:
     -计算几何
 ---
-
-# 计算几何之平面凸包计算
 
 <!-- TOC -->
 

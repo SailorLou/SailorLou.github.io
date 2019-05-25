@@ -4,13 +4,11 @@ title:      "Regular Expression"
 subtitle:   
 date:       2019-04-29 22:00:00
 author:     "Sailor"
-categories:  regular expression
+categories:  regular-expression
 mathjax: false
 tags:
     -Regular Expression
 ---
-
-# Regular Expression
 
 <!-- TOC -->
 

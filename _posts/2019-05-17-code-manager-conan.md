@@ -1,16 +1,15 @@
 ---
 layout:     post
-title:      "C++ package management -- conan"
+title:      "C/C++ package management -- conan"
 subtitle:   ""
 date:       2017-10-31 22:00:00
 author:     "Sailor"
-categories:  C++ package management
+categories:  C++-package-management
 mathjax: false
 tags:
     c++ package management
 ---
 
-# C/C++ Package Manager -- Conan
 <!-- TOC -->
 
 - [C/C++ Package Manager -- Conan](#cc-package-manager----conan)

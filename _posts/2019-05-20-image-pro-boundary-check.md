@@ -4,13 +4,11 @@ title:      "图像处理之边缘检测"
 subtitle:   "边缘检测"
 date:       2019-05-20 16:00:00
 author:     "Sailor"
-categories:  image processing
+categories:  image-processing
 mathjax: false
 tags:
     -图像处理 边缘检测
 ---
-
-# 图像处理之边缘检测
 
 本章主要介绍各种边缘检测的算法，通常边缘常用图像一阶导数和二阶导数来检测.
 

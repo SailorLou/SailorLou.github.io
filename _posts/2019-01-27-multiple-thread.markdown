@@ -10,7 +10,6 @@ tags:
     -linux 并发编程
 ---
 
-# Linux 线程
 <!-- TOC -->
 
 - [Linux 线程](#linux-线程)

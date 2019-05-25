@@ -10,7 +10,6 @@ tags:
     -Linux 并发编程
 ---
 
-# Linux 进程间通信
 <!-- TOC -->
 
 - [Linux 进程间通信](#linux-进程间通信)

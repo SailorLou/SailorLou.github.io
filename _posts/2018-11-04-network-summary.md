@@ -6,17 +6,15 @@ date:       2017-10-31 22:00:00
 author:     "Sailor"
 categories:  network
 mathjax: false
-tags:
-    Network
+tags: Network
 ---
 
 本文主要学习大学教材的学习总结
 
 
 
-
 <!-- TOC -->
-
+## 目录   
 - [计算机网络总结](#计算机网络总结)
     - [overview](#overview)
     - [计算机网络概述](#计算机网络概述)

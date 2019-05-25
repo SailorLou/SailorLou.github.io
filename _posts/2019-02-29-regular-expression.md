@@ -6,8 +6,7 @@ date:       2019-04-29 22:00:00
 author:     "Sailor"
 categories:  regular-expression
 mathjax: false
-tags:
-    -Regular-Expression
+tags: Regular-Expression
 ---
 本文主要对正则法则的总结
 

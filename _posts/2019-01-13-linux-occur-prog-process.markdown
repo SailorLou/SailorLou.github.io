@@ -9,7 +9,6 @@ mathjax: false
 tags: Linux 并发编程
 ---
 
-本文主要是对进程的总结
 
 
 

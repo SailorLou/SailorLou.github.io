@@ -7,7 +7,7 @@ author:     "Sailor"
 categories:  linux
 mathjax: false
 tags:
-    -linux 并发编程
+    linux 并发编程
 ---
 
 本文主要对线程的总结

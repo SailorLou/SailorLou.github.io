@@ -7,7 +7,7 @@ author:     "Sailor"
 categories:  linux
 mathjax: false
 tags:
-    -Linux 并发编程
+    Linux 并发编程
 ---
 
 本文主要是对进程间通信的及其方式总结

@@ -7,7 +7,7 @@ author:     "Sailor"
 categories:  linux
 mathjax: false
 tags:
-    -Linux c++
+    Linux c++
 ---
 
 本文主要是对makefile，gcc 以及gdb的学习

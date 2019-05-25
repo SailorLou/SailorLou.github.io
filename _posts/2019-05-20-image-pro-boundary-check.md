@@ -7,7 +7,7 @@ author:     "Sailor"
 categories:  image-processing
 mathjax: false
 tags:
-    -图像处理 边缘检测
+    图像处理
 ---
 
 本章主要介绍各种边缘检测的算法，通常边缘常用图像一阶导数和二阶导数来检测.

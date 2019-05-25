@@ -9,7 +9,7 @@ mathjax: false
 tags: Linux 并发编程
 ---
 
-
+本文主要是对makefile，gcc 以及gdb的学习
 
 
 

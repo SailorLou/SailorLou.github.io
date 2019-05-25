@@ -42,6 +42,13 @@ tags:  image-processing
     - 图像的分类
     ![](https://sailorlou.github.io/image/image_boundary/typeofimage.PNG)
 
+    - 最普通的数学表达式
+    $$ I = f(x,y,z,λ,t) $$
+    其中x,y，z是空间坐标，λ是波长,t是时间，I 是光强度
+
+    - 对待静态图像可以表达为 $ I = f(x,y,z) $
+    
+
     
 
 

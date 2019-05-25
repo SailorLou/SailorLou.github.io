@@ -2,7 +2,7 @@
 layout:     post
 title:      "linux 文件和目录总结"
 subtitle:   "linux 基础学习"
-date:       2017-10-31 22:00:00
+date:       2018-10-31 22:00:00
 author:     "Sailor"
 categories:  linux
 mathjax: false

@@ -6,11 +6,10 @@ date:       2019-01-20 22:00:00
 author:     "Sailor"
 categories:  linux
 mathjax: false
-tags:
-    -Linux 并发编程
+tags: Linux 并发编程
 ---
 
-本文主要是对进程的总结
+本文主要是对进程的总结   
 
 
 

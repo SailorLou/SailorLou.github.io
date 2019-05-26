@@ -9,7 +9,7 @@ mathjax: true
 tags:  image-processing
 ---
 
-本文主要总结数字图像的基本术语，以及数学变换.
+本文主要总结数字图像的基本术语，以及数学变换.包括空间变换，傅立叶变换，以及灰度插值.
 
 <!-- more -->
 
@@ -166,10 +166,54 @@ tags:  image-processing
 
 ### 频域上的变换（傅立叶变换）
 #### 傅立叶级数
+- 三角函数信号：
+   $$ x(t)=Acos(w _0t+φ) $$
+   $$ W _0 = 2π/T = 2πf_0 $$
+   w _0t+φ 是相位，
+- 任何周期信号都能够由不同谐波的正弦波叠加而成，这由傅里叶发现，因此称之为傅里叶级数.
+    ![](https://sailorlou.github.io/image/image_boundary/fuliyejishu.PNG)
+- 傅里叶级数的物理含义就是 任何时域连续的复杂波形，通过傅立叶变换都可以变成一系列简谐波之和.
+- 傅立叶变换是全局性的，没法确定时间与空间位置
 #### 傅立叶积分
 #### 傅里叶变换
+傅里叶认为，既然周期信号可以用正弦信号来表示，那么非周期信号也可以用正弦信号来逼近。原因是非周期信号可以看成是周期无限大的周期信号；事实证明，傅里叶的想法是对的，于是才有了大名鼎鼎的傅里叶变换
+![](https://sailorlou.github.io/image/image_boundary/fuliyebianhuan.png)
+
+#### 离散傅里叶变换
+![](https://sailorlou.github.io/image/image_boundary/lisanfuliye.PNG)
+
+#### 傅里叶变换的性质
+- 可分离性：也就是说一个二维傅立叶变换可以分解为两步进行，
+每一步都是一个一维傅里叶变换.先对f(x,y）按行进行傅里叶变换得到F(x，v),在对F（x,v）按列进行傅里叶变换得到F（u，v），先列后行也是可以的.
+![](https://sailorlou.github.io/image/image_boundary/kefenli.PNG)。
+回到图像的像素级别的话：每一行由N个像素点，对每一行的一维N点序列进行离散傅里叶变换得到F(x,u),再对得到F(x,u)按列向对每一列做M点的离散傅里叶变换，就可以得到二维图像f(x,y)的离散傅里叶变换F(u,v).
+- 平移性
+
+- 线性
+F[af(x,y)+bg(x,y)] = aF(f(x,y))+bF(g(x,y));时域上的线性相叠加等于频域相加.
+- 周期性
+- 共轭对称性
+- 旋转性
+- 比例变换性
+- Parseval 定理
+- 相关定理
+- 卷积定理
+![](https://sailorlou.github.io/image/image_boundary/juanji.PNG)
+
+#### 快速傅里叶变换
+- 快速傅里叶变换 (fast Fourier transform),即利用计算机计算离散傅里叶变换（DFT)的高效、快速计算方法的统称，简称FFT
+- 这里仅仅列出概念，需要特别的篇幅来所傅里叶
+- 可以查看引用的两篇文章，或者《算法导论》，第四版，第30章 多项式与快速傅里叶变换.
+
+#### 离散傅立叶变换的显示
+![](https://sailorlou.github.io/image/image_boundary/fuliyexianshi.PNG)
 
 ### 小波变换
+
+
+## Reference
+- https://blog.csdn.net/enjoy_pascal/article/details/81478582
+- https://blog.csdn.net/little_cats/article/details/81039747
 
 
 

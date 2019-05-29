@@ -214,6 +214,8 @@ F[af(x,y)+bg(x,y)] = aF(f(x,y))+bF(g(x,y));时域上的线性相叠加等于频�
 ## Reference
 - https://blog.csdn.net/enjoy_pascal/article/details/81478582
 - https://blog.csdn.net/little_cats/article/details/81039747
+- http://fourier.eng.hmc.edu/e161/lectures/
+
 
 
 

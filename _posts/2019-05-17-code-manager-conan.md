@@ -321,7 +321,8 @@ int main (void) {
     hello();
 }
 ```
-- 添加文件 conanfile.txt 如：   
+- 添加文件 conanfile.txt 如： 
+
 ```   
  [requires]
  HelloConan/1.0.0@staticlib/testing
@@ -330,6 +331,7 @@ int main (void) {
  cmake
 
 ```   
+
 - 运行命令 “conan install .”，会有几个文件生成
     - conanbuildinfo.cmake
     - conanbuildinfo

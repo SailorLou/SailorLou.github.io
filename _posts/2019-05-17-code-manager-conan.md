@@ -323,7 +323,8 @@ int main (void) {
 ```
 - 添加文件 conanfile.txt 如： 
 
-```   
+```  
+
  [requires]
  HelloConan/1.0.0@staticlib/testing
 
@@ -360,10 +361,11 @@ target_link_libraries(TestHelloConan ${CONAN_LIBS})
 
 #### 动态库的创建
 - hello程序的头文件和源文件如同静态库
-- 用如下命令构建动态库      
+- 用如下命令构建动态库
+
 ```   
-g++ -c -fPIC hello.cc -o hello.o
-g++ -shared hello.o -o libhello.so
+>>> g++ -c -fPIC hello.cc -o hello.o
+>>> g++ -shared hello.o -o libhello.so
 ```   
 
 - 其他操作和静态库一致。

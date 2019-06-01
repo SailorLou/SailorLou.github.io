@@ -163,8 +163,9 @@ int main (void) {
     - conanbuildinfo.cmake
     - conanbuildinfo
 
-- 然后编写CMakeLists.txt文件如下      
-```
+- 然后编写CMakeLists.txt文件如下   
+
+```     
 cmake_minimum_required(VERSION 2.8.12)
 project(TestHelloConan)
 
@@ -182,13 +183,13 @@ foreach(_LIB ${CONAN_LIBS_DEBUG})
     target_link_libraries(TestHelloConan debug ${_LIB})
 endforeach()
 
-```
+```   
 
 - 运行如下命令构建vs工程   
 
-```
+```   
 cmake . -G "Visual Studio 15"
-```
+```    
 
 ## 4 在linux上的应用
 ### 4.1 准备工作

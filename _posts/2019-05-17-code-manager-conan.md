@@ -356,7 +356,7 @@ target_link_libraries(TestHelloConan ${CONAN_LIBS})
 
 - cmake .
 - make
-- ./bin/TestHelloConan
+- ./bin/TestHelloConan   
   output:Hello Conan！
 
 #### 动态库的创建

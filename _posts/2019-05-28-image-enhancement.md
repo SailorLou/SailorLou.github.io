@@ -9,7 +9,7 @@ mathjax: true
 tags:  image-processing
 ---
 
-本文主要对图像增强一般方法的总结.
+本文主要对图像增强一般方法的总结，其包括灰度增强，空间域滤波和频率域滤波.
 
 <!-- more -->
 
@@ -71,7 +71,6 @@ where $w$ represents a neighborhood defined by the user, centered around locatio
 - 当窗口内噪声点的个数大于窗口宽度的一半时，中值滤波的效果不好.
 
 ### 加权平均
-#### 基本原理
 ![](https://sailorlou.github.io/image/image_boundary/jiaquanpingjun.PNG)
 
 ### 高斯滤波器
@@ -105,8 +104,71 @@ where $w$ represents a neighborhood defined by the user, centered around locatio
 数字图像中边缘在灰度上常常类似于斜坡过度，这样就导致图像的一阶微分产生较粗的边缘，因为延着斜坡的微分非零，二阶微分产生由零分开的一个像素宽的双边缘,
 重要结论：二阶微分在增强细节要比一阶微分好的多.
 
+### 梯度算子一阶微分
+图像处理中的一阶微分用梯度幅值来实现的，f在坐标（x,y）处的梯度定为二维列向量：
+![](https://sailorlou.github.io/image/image_boundary/tiduzengqiang.png)
+
+其中向量表示在位置(x,y)的最大变化率方向.
+幅值表示梯度向量方向变化率在(x,y)处的值，注意M(x,y)是与原图像大小相同，在实战中该图像被称为梯度图像。
+
+对于求出梯度幅值后，确定锐化输出g(x,y)方法有：
+- 直接用梯度幅值代替锐化后的图像的灰度值   
+   该方法简单，但在图像均匀区域，梯度很少，甚至为0，结果图像较暗.
+- 输出门限判断
+    - 当梯度值大于门限时，取梯度值为输出图像的灰度值
+    - 其他则保留原图像像素
+- 为边缘规定一个特定的灰度级
+    - 当梯度值大于某一个门限时，设置指定灰度
+    - 其他则保留原来图像灰度值
+- 为背景规定特定灰度级
+    -  当梯度值大于某一个门限时，取梯度值为输出图像的灰度值
+    - 其他则为指定灰度
+- 二值化图像
+    - 当梯度值大于某一个门限时，设置指定灰度
+    - 其他则设置指定另一种灰度
+
+假如一个图像的局部为：
+![](https://sailorlou.github.io/image/image_boundary/pixgrid.PNG)
+由于求梯度分量的方法不同而提出了不同的梯度算子：
+- Roberts 算子
+![](https://sailorlou.github.io/image/image_boundary/roberts.png)
+
+- Sobel 算子
+![](https://sailorlou.github.io/image/image_boundary/sobel.png)
+
+在边缘检测检测中，G大于某一个阈值，则认为该点(x，y)为边缘点.
+sobel对噪声具有平滑作用，提供较为精确的边缘方向信息，边缘定位精度不够高。当对精度要求不是很高时，是一种较为常用的边缘检测方法。
+
+### 拉普拉斯算子 - 二阶微分
+![](https://sailorlou.github.io/image/image_boundary/lapulasi.png)
+
+## 频率域上的图像增强
+频率域上的图像处理一般步骤如下：
+![](https://sailorlou.github.io/image/image_boundary/frequencedomain.PNG)
+有卷积定理可知，滤波函数的表达式可以表示为
+$$ G(u,v)=H(u,v)F(u,v) $$
+其中H为转换函数，其包含一下几种类型
+- 理想圆形低通滤波器
+![](https://sailorlou.github.io/image/image_boundary/idearlowpass.PNG)
+
+- Butterworth lowpass filter
+![](https://sailorlou.github.io/image/image_boundary/butterworth.PNG)
+
+- Gaussian Low pass filters
+![](https://sailorlou.github.io/image/image_boundary/gaosiditong.PNG)
+
+- 高通滤波器
+![](https://sailorlou.github.io/image/image_boundary/gaotonglvboqi.PNG).
+其中lfe 代表高通，H（x,y）代表低通.
+a等于1，b为-1.D(u,v)表示欧式u和v距离，D0表示被截断的频率门限值（cutoff frequency）.
+## 伪彩色处理
+把灰度图像处理成伪彩色图像，其宗旨是将灰度图像的不同灰度级按照线性或非线性映射成不同的彩色，以提高图像的内容的可辨识度.
+## 假彩色图像处理
+把真实的自然彩色图像处理成假彩色图像。
+假彩色是通过不同波段进行合成得到的彩色影像，不是肉眼观察得到的实际颜色。
 
 
 ## reference
 - http://fourier.eng.hmc.edu/e161/lectures/
+- http://faculty.salina.k-state.edu/tim/mVision/freq-domain/freq_filters.html
 

@@ -38,5 +38,31 @@ tags:  image-processing
 - 把焦点放在增强感兴趣对象，减少不相干部分的干扰上.   
 
 ## 阈值分割法
-
+- 二值化的分割方法
 ![](https://sailorlou.github.io/image/image_boundary/yuzhi.PNG)
+- 直方图的双峰性质来确定阈值
+- 全局阈值处理
+    - 1).为全局阈值T选择一个初始值
+    - 2).以阈值T 对图像进行分割产生两组像素，G1 和 G2
+    - 3).对两组像素分别计算平均灰度值（均值）：m1 和m2
+    - 4).计算一个新的阈值 T = (m1+m2)/2
+    - 5).重复步骤2和4直到迭代中的T值间的差小于一个预定义的误差系数为止.
+
+- 最大类间方差阈值(大津阈值分割OTSU)
+    - 该方法自动寻找阈值，对图像进行划分，将目标和背景区分开来.
+    - 主要原理是 把直方图在某一个阈值分成两组,当被分成的两组间方差为最大时，决定最终阈值
+    - 算法步骤如下：
+        - 1).假设一幅图像有L个灰度级[1,2,…,L]。灰度级为i的像素点的个数为ni，像素总个数为N
+        - 2).用灰度级k将图像分成两组像素 C0 和 C1，C0灰度级为[1,…,k]，C1灰度级为[k+1,…,L].
+        - 3).分别计算两组产生的概率和灰度平均值
+        ![](https://sailorlou.github.io/image/image_boundary/otsu.PNG)  
+         并且全部采样的平均值可以表述为：
+           ![](https://sailorlou.github.io/image/image_boundary/otsu1.PNG)  
+        - 4).用下式计算两组总的方差
+          ![](https://sailorlou.github.io/image/image_boundary/otsu2.PNG) 
+        - 5).所以可以求出k就是阈值
+        ![](https://sailorlou.github.io/image/image_boundary/otsu3.PNG) 
+
+
+## Reference
+- A threshold selection method from gray-level histogram

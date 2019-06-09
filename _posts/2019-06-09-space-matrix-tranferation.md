@@ -14,6 +14,7 @@ tags:  Math computer-graphics
 
 <!-- more -->
 
+
 ## 齐次坐标系
 ### 概念及其由来
 In Euclidean space (geometry), two parallel lines on the same plane cannot intersect, or cannot meet each other forever. It is a common sense that everyone is familiar with. 
@@ -46,15 +47,15 @@ Now, we have a solution, (x, y, 0) since (C - D)w = 0, ∴ w = 0. Therefore, two
     - collinearity between points: three or more points which lie on the same line (called collinear points) continue to be collinear after the transformation.
     - parallelism: two or more lines which are parallel, continue to be parallel after the transformation.
     - convexity of sets: a convex set continues to be convex after the transformation. Moreover, the extreme points of the original set are mapped to the extreme points of the transformed set.[3]
-    - ratios of lengths along a line: for distinct collinear points
-     {\displaystyle p_{1}} p_{1}, {\displaystyle p_{2}} p_{2}, {\displaystyle p_{3}} p_{3}, the ratio of {\displaystyle {\overrightarrow {p_{1}p_{2}}}} {\overrightarrow {p_{1}p_{2}}} and {\displaystyle {\overrightarrow {p_{2}p_{3}}}} {\overrightarrow {p_{2}p_{3}}} is the same as that of {\displaystyle {\overrightarrow {f(p_{1})f(p_{2})}}} {\overrightarrow {f(p_{1})f(p_{2})}} and {\displaystyle {\overrightarrow {f(p_{2})f(p_{3})}}} {\overrightarrow {f(p_{2})f(p_{3})}}.
+    - ratios of lengths along a line: 
     - barycenters of weighted collections of points.
 
 - example：2D affine transformation matrix
+
     ![](https://sailorlou.github.io/image/math/2D_affine_transformation_matrix.png)
 
 - 从仿射变换变换中看齐次坐标的好处
-假设2维平面上一点 $$ P=（x,y）经过旋转和平移后的仿射变换可以写成：
+假设2维平面上一点 $$ P=（x,y）$$ 经过旋转和平移后的仿射变换可以写成：
 ![](https://sailorlou.github.io/image/math/fangshe.jpg)
 
 ## 旋转矩阵

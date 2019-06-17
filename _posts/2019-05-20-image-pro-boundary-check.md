@@ -17,6 +17,7 @@ tags: image-processing
 
 - [基于微分算子的边缘检测方法](#基于微分算子的边缘检测方法)
     - [原理介绍](#原理介绍)
+    - [梯度算子](#梯度算子)
     - [Prewitt算子](#prewitt算子)
     - [Roberts 交叉算子](#roberts-交叉算子)
     - [Sobel 算子](#sobel-算子)
@@ -30,6 +31,11 @@ tags: image-processing
 
 ## 基于微分算子的边缘检测方法
 ### 原理介绍
+一般常用一阶微分和二阶微分方法来检测边缘点：
+- 在一阶微分图中极大值或极小值处是边缘；
+- 在二阶微分图中极大值和极小值之间的过 0 点被认为是边缘；
+
+### 梯度算子
 梯度算子对应于图像的一阶导数，图像的一阶导数一般通过差分运算来近似的.
 梯度的方向是图像最大变化率的方向，对图像F(j，k)在点(j，k)处的梯度定义为矢量：
 ![](https://sailorlou.github.io/image/image_boundary/tidu1.PNG)
@@ -50,6 +56,7 @@ tags: image-processing
 ### Kirsch 算子
 ### laplace 算子
 另一篇总结[《图像增强》](https://sailorlou.github.io/2019/05/25/image-enhancement/#%E5%9B%BE%E5%83%8F%E7%9A%84%E9%94%90%E5%8C%96)
+
 ### Marr-Hidreth算子
 laplace对噪声比较敏感，该算子的主要思路是首先对图像进行平滑处理然后再进行laplace算子.平滑函数常常选择Gauss函数.
 ### Canny算子

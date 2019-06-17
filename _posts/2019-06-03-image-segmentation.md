@@ -48,6 +48,11 @@ tags:  image-processing
 
 ### 最优阈值（最小错误概率阈值）
 在某种评价的标准下寻优，找出相应意义下的最优阈值.
+其中一个评价标准：错分的概率最小.
+- 1).给定目标物和背景的概率及其灰度分布概率密度函数
+- 2）.给定一个阈值t下，求每类的分割错误概率
+- 3）.求此阈值下总分割错误概率e(t)
+- 4）.由总分割错误概率e（t）的极少值求解最优值T
 
 ### 全局阈值处理
 - 1).为全局阈值T选择一个初始值
@@ -57,19 +62,39 @@ tags:  image-processing
 - 5).重复步骤2和4直到迭代中的T值间的差小于一个预定义的误差系数为止.
 
 ### 最大类间方差阈值(大津阈值分割OTSU)
-    - 该方法自动寻找阈值，对图像进行划分，将目标和背景区分开来.
-    - 主要原理是 把直方图在某一个阈值分成两组,当被分成的两组间方差为最大时，决定最终阈值
-    - 算法步骤如下：
-        - 1).假设一幅图像有L个灰度级[1,2,…,L]。灰度级为i的像素点的个数为ni，像素总个数为N
-        - 2).用灰度级k将图像分成两组像素 C0 和 C1，C0灰度级为[1,…,k]，C1灰度级为[k+1,…,L].
-        - 3).分别计算两组产生的概率和灰度平均值
-        ![](https://sailorlou.github.io/image/image_boundary/otsu.PNG)  
-         并且全部采样的平均值可以表述为：
-           ![](https://sailorlou.github.io/image/image_boundary/otsu1.PNG)  
-        - 4).用下式计算两组总的方差
-          ![](https://sailorlou.github.io/image/image_boundary/otsu2.PNG) 
-        - 5).所以可以求出k就是阈值
-        ![](https://sailorlou.github.io/image/image_boundary/otsu3.PNG) 
+- 该方法自动寻找阈值，对图像进行划分，将目标和背景区分开来.
+- 主要原理是 把直方图在某一个阈值分成两组,当被分成的两组间方差为最大时，决定最终阈值
+- 算法步骤如下：
+    - 1).假设一幅图像有L个灰度级[1,2,…,L]。灰度级为i的像素点的个数为ni，像素总个数为N
+    - 2).用灰度级k将图像分成两组像素 C0 和 C1，C0灰度级为[1,…,k]，C1灰度级为[k+1,…,L].
+    - 3).分别计算两组产生的概率和灰度平均值
+    ![](https://sailorlou.github.io/image/image_boundary/otsu.PNG) 
+
+    并且全部采样的平均值可以表述为：
+    ![](https://sailorlou.github.io/image/image_boundary/otsu1.PNG) 
+
+    - 4).用下式计算两组总的方差
+    ![](https://sailorlou.github.io/image/image_boundary/otsu2.PNG) 
+
+    - 5).所以可以求出k就是阈值
+    ![](https://sailorlou.github.io/image/image_boundary/otsu3.PNG) 
+
+### p 参数法阈值分割算法   
+p就是已经知道像素点的比值和个数等先验知识，从来用来指导阈值选择.
+比如高速路上的摄像头，比如目标车的像素比整个图像的比值.
+- 计算原图的灰度直方图
+- 输入目标对象所占画面的比例p
+- 尝试性地给定一个阈值（在一个灰度级上随机选择即可）
+- 计算在此阈值下目标物体的像素点数n
+- 假如图像的大小为MXN， 判断n/（N*M）是否接近P,并设x = n/（N*M）-p
+    - 如果是，则该阈值时我们想要的
+    - 如果不是，新阈值=老阈值+delta，x小于0，则delta大于零，反之小于零.
+
+## 边缘分割
+### 边缘检测
+利用微分和差分来做，主要参见另一篇总结[《图像增强》](https://sailorlou.github.io/2019/05/25/image-enhancement/#%E5%9B%BE%E5%83%8F%E7%9A%84%E9%94%90%E5%8C%96)和[《图像边缘检测》](https://sailorlou.github.io/2019/05/20/image-pro-boundary-check/)  
+
+### 边缘分割原理
 
 
 ## Reference

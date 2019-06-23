@@ -70,13 +70,16 @@ tags:  image-processing
     - 3).分别计算两组产生的概率和灰度平均值
     ![](https://sailorlou.github.io/image/image_boundary/otsu.PNG) 
 
-    并且全部采样的平均值可以表述为：
+    并且全部采样的平均值可以表述为：   
+
     ![](https://sailorlou.github.io/image/image_boundary/otsu1.PNG) 
 
-    - 4).用下式计算两组总的方差
-    ![](https://sailorlou.github.io/image/image_boundary/otsu2.PNG) 
+    - 4).用下式计算两组总的方差   
 
-    - 5).所以可以求出k就是阈值
+    ![](https://sailorlou.github.io/image/image_boundary/otsu2.PNG)    
+
+    - 5).所以可以求出k就是阈值   
+
     ![](https://sailorlou.github.io/image/image_boundary/otsu3.PNG) 
 
 ### p 参数法阈值分割算法   
@@ -141,6 +144,7 @@ p就是已经知道像素点的比值和个数等先验知识，从来用来指�
     - 这两个空间是对偶的，在图像空间中的一个点，则在参数空间中则对应以条线.
     - 假如在图像空间中有两点（x1,y1),(x2,y2)，则在参数空间对应两条相交的线，且交点（p,q）就是原来方程的斜率和截距。
     - 则两个空间的关系为：  
+
     | 图像空间 | 对偶 |  参数空间 |
     |:------ |:------| :------| 
     |纵坐标y|对偶|截距q|
@@ -164,6 +168,7 @@ p就是已经知道像素点的比值和个数等先验知识，从来用来指�
 ## 形态学
 - 主要是为了获取物体拓扑和结构信息，通过物体和结构元素相互作用，得到物体的形态结构.
 - 主要思想：就是用结构元素去原图像中去探测或分析 是否具备结构元素的对应的形状，从而达到对图像分析和识别的目的，如下图所以，该中心点用结构元素探测后，根据一定的逻辑判断中心元素的输出.
+
 ![](https://sailorlou.github.io/image/image_boundary/structueElem.PNG)
 
 - 图像分割后常常存在以下问题

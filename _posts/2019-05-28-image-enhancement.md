@@ -169,6 +169,11 @@ sobel对噪声具有平滑作用，提供较为精确的边缘方向信息，边
 ### 拉普拉斯算子 - 二阶微分
 ![](https://sailorlou.github.io/image/image_boundary/lapulasi.png)
 
+特点是：
+- 二阶导，对噪声非常敏感
+- 拉普拉斯的肤质产生双边缘
+- 不能检测边缘的方向-无向模板
+
 ## 频率域上的图像增强
 频率域上的图像处理一般步骤如下：
 ![](https://sailorlou.github.io/image/image_boundary/frequencedomain.PNG)

@@ -43,6 +43,10 @@ tags: image-processing
 对离散的图像，微分可以用差分来近似，如下图（1）式，便于编程和提高运算速度，在一些场合可以用绝对值表示，如下图二式，
 ![](https://sailorlou.github.io/image/image_boundary/tidu2.PNG)
 
+利用幅值和方向可以进行假边缘点（非极大值）抑制：
+遍历图像的每一个像素，假设某一像素P1,求出该像素的梯度值和梯度方向，在梯度方向上的前一个像素为p0 和后一下像素p2.并求出这两个像素的梯度值，如果P1的梯度值是三个像素的梯度的最大值，则是边缘点.否则，则不是，并将其梯度设为0.
+
+
 关于梯度的介绍可以参见 另一篇总结[《图像增强》](https://sailorlou.github.io/2019/05/25/image-enhancement/#%E5%9B%BE%E5%83%8F%E7%9A%84%E9%94%90%E5%8C%96)
 
 ### Prewitt算子
@@ -57,6 +61,7 @@ tags: image-processing
 ### laplace 算子
 另一篇总结[《图像增强》](https://sailorlou.github.io/2019/05/25/image-enhancement/#%E5%9B%BE%E5%83%8F%E7%9A%84%E9%94%90%E5%8C%96)
 
+为了克服二阶微分对噪声敏感，可以用LOG算子，先进行图像平滑（高斯），然后再用拉普拉斯算子进行边缘检测.
 ### Marr-Hidreth算子
 laplace对噪声比较敏感，该算子的主要思路是首先对图像进行平滑处理然后再进行laplace算子.平滑函数常常选择Gauss函数.
 ### Canny算子

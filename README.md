@@ -177,10 +177,10 @@ Shows at site header part.
 
 ```yml
 # Site settings
-title: HyG
-brief-intro: Front-end Dev Engineer
+title: study
+brief-intro: study
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://gaohaoyang.github.io" # the base hostname & protocol for your site
+url: "http://sailorlou.github.io" # the base hostname & protocol for your site
 ```
 
 #### Link info
@@ -189,16 +189,16 @@ Mainly shows at the footer of the site.
 
 ```yml
 # other links
-twitter_username: gaohaoyang126
-facebook_username: gaohaoyang.water
-github_username:  Gaohaoyang
-email: gaohaoyang126@126.com
-weibo_username: 3115521wh
-zhihu_username: gaohaoyang
-linkedIn_username: gaohaoyang
+twitter_username: 
+facebook_username: 
+github_username:  
+email:
+weibo_username: 
+zhihu_username: 
+linkedIn_username: 
 dribbble_username:
 
-description_footer: 本站记录我前端之旅的沿途风景！
+description_footer: 
 ```
 
 #### Comments info

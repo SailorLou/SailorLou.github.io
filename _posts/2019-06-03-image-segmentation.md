@@ -91,11 +91,19 @@ p就是已经知道像素点的比值和个数等先验知识，从来用来指�
     - 如果不是，新阈值=老阈值+delta，x小于0，则delta大于零，反之小于零.
 
 ## 边缘分割
-### 边缘检测
-利用微分和差分来做，主要参见另一篇总结[《图像增强》](https://sailorlou.github.io/2019/05/25/image-enhancement/#%E5%9B%BE%E5%83%8F%E7%9A%84%E9%94%90%E5%8C%96)和[《图像边缘检测》](https://sailorlou.github.io/2019/05/20/image-pro-boundary-check/)  
 
 ### 边缘分割原理
+通过寻找图像中不同区域的边界，从而实现图像分割，它是基于边界的一大类图像分割方法.一般由如下步骤：
+- 输入一张图像
+- 找出边缘点；采用孤立点检测模板或微分算子进行检测。
+- 边界闭合
+  - 利用相似性进行闭合处理
+  - 直接采用Hough变换
+  - 曲线拟合
+- 最后实现分割
 
+### 边缘检测
+利用微分和差分来做，主要参见另一篇总结[《图像增强》](https://sailorlou.github.io/2019/05/25/image-enhancement/#%E5%9B%BE%E5%83%8F%E7%9A%84%E9%94%90%E5%8C%96)和[《图像边缘检测》](https://sailorlou.github.io/2019/05/20/image-pro-boundary-check/) 
 
 ## Reference
 - A threshold selection method from gray-level histogram

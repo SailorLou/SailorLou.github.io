@@ -213,6 +213,7 @@ T* Singleton<T>::m_instance = nullptr;
 
 ### 结构型模式
 #### 适配器
+   ![](https://sailorlou.github.io/image/DesignPattern/Adapter.png)
 #### 桥接
 #### 组合
 #### 装饰

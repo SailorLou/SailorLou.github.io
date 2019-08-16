@@ -80,35 +80,158 @@ tags:  编程哲学
 
   ### 创建型模式
   #### 简单工厂模式
+   ![](https://sailorlou.github.io/image/DesignPattern/SimpleFactory.png)
   #### 工厂模式
+  ![](https://sailorlou.github.io/image/DesignPattern/Factory.png)
   #### 抽象工厂模式
+  ![](https://sailorlou.github.io/image/DesignPattern/AbstractFactory.png)
   #### 构建者模式
+   ![](https://sailorlou.github.io/image/DesignPattern/Builder.png)
   #### 原型模式
+    ![](https://sailorlou.github.io/image/DesignPattern/Prototype.png)
   #### 单例模式
+- 单线程中
 
-  ### 结构型模式
-  #### 适配器
-  #### 桥接
-  #### 组合
-  #### 装饰
-  #### 外观
-  #### 享元
-  #### 代理模式
+```c
 
-  ### 行为型模式
-  #### 职责链
-  #### 命令
-  #### 解释器
-  #### 迭代器
-  #### 中介者
-  #### 备忘录
-  #### 观察者
-  #### 状态
-  #### 策略
-  #### 模板方法
-  #### 访问者
+//Singleton.hxx
+// 以下是一个单例模板类，但并不是线程安全的
+#ifndef SINGLETON_HXX_INCLUDED
+#define SINGLETON_HXX_INCLUDED
 
-  ## 结束语
+
+#define DECLARE_SINGLETON_CLASS( type ) friend class Singleton< type >;\
+                                        friend std::unique_ptr<type> std::make_unique<type>();
+
+template <class T>
+class Singleton
+{
+public:
+    static inline T* GetInstance();
+private:
+    Singleton(void) {}
+    ~Singleton(void) {}
+    Singleton(const Singleton&);
+    Singleton & operator= (const Singleton &);
+    static std::unique_ptr<T> S_instance;
+};
+template <class T>
+std::unique_ptr<T> Singleton<T>::S_instance;
+template <class T>
+inline T* Singleton<T>::GetInstance()
+{
+    if (S_instance.get() == nullptr)
+    {
+        S_instance = UGS::Estd::make_unique<T>();
+    }
+    return S_instance.get();
+}
+
+#endif  //SINGLETON_HXX_INCLUDED
+
+// 在类中用法
+// 在单例类的私有语句块中添加如下
+DECLARE_SINGLETON_CLASS(Class);
+
+//用法：
+ typedef Singleton<Object> ObjectSingleton;
+
+auto segleton = ObjectSingleton::GetInstance();
+
+```
+- 静态初始化
+
+```c
+
+template <class T>
+class Singleton
+{
+  public:
+    static T* GetInstance();
+protected:
+    Singleton()=default;
+private:
+    Singleton(const Singleton&)=delete;
+    Singleton& operator=(const Singleton&)=delete;
+    static T* m_instance;
+};
+
+
+template <class T>
+T* Singleton<T>::GetInstance()
+{
+    return m_instance;
+}
+
+template <class T>
+T* Singleton<T>::m_instance = new T(); // todo:need use shared pointer
+
+```
+- 双重锁定
+
+```c
+
+template <class T>
+class Singleton
+{
+  public:
+    static T* GetInstance(); //todo:shared pointer
+   
+private:
+    Singleton()=default;
+    Singleton(const Singleton&)=delete;
+    Singleton& operator=(const Singleton&)=delete;
+    static T* m_instance;
+    static pthread_mutex_t mutex;
+
+};
+
+
+template <class T>
+T* Singleton<T>::GetInstance()
+{
+    if( m_instance == nullptr)
+    {
+        pthread_mutex_lock(&mutex);
+        if( m_instance == nullptr)
+        { 
+             m_instance = new T();
+        }
+        pthread_mutex_unlock(&mutex);
+    }
+    return m_instance;
+}
+
+
+template <class T>
+pthread_mutex_t Singleton<T>::mutex = PTHREAD_MUTEX_INITIALIZER;
+
+template <class T>
+T* Singleton<T>::m_instance = nullptr;
+
+```
+
+### 结构型模式
+#### 适配器
+#### 桥接
+#### 组合
+#### 装饰
+#### 外观
+#### 享元
+#### 代理模式
+### 行为型模式
+#### 职责链
+#### 命令
+#### 解释器
+#### 迭代器
+#### 中介者
+#### 备忘录
+#### 观察者
+#### 状态
+#### 策略
+#### 模板方法
+#### 访问者
+## 结束语
 
   
 

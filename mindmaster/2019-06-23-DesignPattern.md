@@ -285,10 +285,35 @@ T* Singleton<T>::m_instance = nullptr;
 
 ![](https://sailorlou.github.io/image/DesignPattern/ExpressionTree.png)
 ![](https://sailorlou.github.io/image/DesignPattern/ExpressionDesign.png)
+- 
 #### 迭代器
+原理：提供一种方法顺序访问一个聚合对象中各个元素，而又不需要暴露该对象的内部表示
+应用：当需要对聚合对象有多种方式遍历时，可以考虑用迭代器模式，如从前到后，从后到前，从大到小等.
+![](https://sailorlou.github.io/image/DesignPattern/Iterator.png)
+
 #### 中介者
+原理：用一个中介对象来封装一些列对象交互，中介者使各对象不需要显示地相互引用，从而使其松耦合松散，而且可以独立地改变他们之间的交互.
+
+应用场景有：
+- 一组对象以定义良好但是复杂的方式进行通信，产生的相互依赖关系结构混乱且难以理解
+- 一个对象引用其他很多对象并且直接与这些对象通信，导致难以复用该对象
+- 想定制一个分布在多个类中的行为，而又不想生成太多的子类.
+![](https://sailorlou.github.io/image/DesignPattern/Mediator.png)
+
 #### 备忘录
+
+原理：在不破坏封装性的前提下，补货一个对象的内部状态，并在该对象之外保存这个状态，这样以后就可将该对象恢复到原先保存的状态.
+
+要点：
+- 一个备忘录是一个对象，保存另一个对象在某一瞬态的内部状态
+- 防止Originator以外的其他对象访问备忘录.
+![](https://sailorlou.github.io/image/DesignPattern/Memento.png)
+
 #### 观察者
+
+原理： 让多个观察者对象同时监听某一主题对象，当这个主题对象发生变化时会通知所有观察者对象，使他们能够自动更新自己.
+注意：有时候会配合组合模式和职责链模式来处理消息机制.比如 画一副笛卡尔坐标系，当轴上的字体的类型变化时（subject变化），可以触发整个坐标系的绘制（subject 所attach的model对象）.
+![](https://sailorlou.github.io/image/DesignPattern/Observer.png)
 #### 状态
 #### 策略
 #### 模板方法

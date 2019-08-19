@@ -314,6 +314,8 @@ T* Singleton<T>::m_instance = nullptr;
 原理： 让多个观察者对象同时监听某一主题对象，当这个主题对象发生变化时会通知所有观察者对象，使他们能够自动更新自己.
 注意：有时候会配合组合模式和职责链模式来处理消息机制.比如 画一副笛卡尔坐标系，当轴上的字体的类型变化时（subject变化），可以触发整个坐标系的绘制（subject 所attach的model对象）.
 ![](https://sailorlou.github.io/image/DesignPattern/Observer.png)
+
+当一个observer监听多个subject时，subject的Notify时可以把消息源传入IObserver的update函数中：update（ISubject*）
 #### 状态
 #### 策略
 #### 模板方法

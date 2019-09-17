@@ -11494,7 +11494,7 @@ set回originator.
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">488</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">384</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">428</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">116</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">56</XPD:ATTR>
 <XPD:REF name="Model">6cTsbkB2+UGViowomJy+AgAA</XPD:REF>
@@ -11525,7 +11525,7 @@ set回originator.
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">676</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">388</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">436</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">114</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">43</XPD:ATTR>
 <XPD:REF name="Model">3KUc6Xh/m0+TBwLcf1GYEgAA</XPD:REF>
@@ -11609,7 +11609,8 @@ set回originator.
 <XPD:OBJ name="OwnedViews[10]" type="UMLGeneralizationView" guid="eftsJVA0TkinI4Lwy58F0AAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">577,384;620,347</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">556,428;556,404;656,404;656,347</XPD:ATTR>
 <XPD:REF name="Model">SbG2P4IHGk6ywU8xRnjwmAAA</XPD:REF>
 <XPD:REF name="Head">HUKrPcw61UWu5bTi92xmlAAA</XPD:REF>
 <XPD:REF name="Tail">7r7hxiINP0yhv/uooiEndAAA</XPD:REF>
@@ -11635,7 +11636,8 @@ set回originator.
 <XPD:OBJ name="OwnedViews[11]" type="UMLGeneralizationView" guid="fP2u+pHp3kG3UVN4NT2OogAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">714,388;678,347</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">752,436;752,404;656,404;656,347</XPD:ATTR>
 <XPD:REF name="Model">zv3OfbFkAkObcckigEuQWQAA</XPD:REF>
 <XPD:REF name="Head">HUKrPcw61UWu5bTi92xmlAAA</XPD:REF>
 <XPD:REF name="Tail">Jco8ovflAE+S4/ObjmUrYwAA</XPD:REF>
@@ -11661,8 +11663,8 @@ set回originator.
 <XPD:OBJ name="OwnedViews[12]" type="UMLNoteView" guid="w7vq8mbuukOO1+pDhd2eXQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">476</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">484</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">460</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">516</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">210</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">68</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">void accept(Visitior* visitor)
@@ -11675,7 +11677,7 @@ set回originator.
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">554,484;554,439</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">554,516;554,483</XPD:ATTR>
 <XPD:REF name="Head">7r7hxiINP0yhv/uooiEndAAA</XPD:REF>
 <XPD:REF name="Tail">w7vq8mbuukOO1+pDhd2eXQAA</XPD:REF>
 </XPD:OBJ>
@@ -11704,7 +11706,8 @@ set回originator.
 <XPD:OBJ name="OwnedViews[16]" type="UMLAssociationView" guid="qqfJbpWAQUGbgwksS4qWXwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">273,65;536,63</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">273,65;536,65</XPD:ATTR>
 <XPD:REF name="Model">znsc7D3euUSG+NTYnE8PAwAA</XPD:REF>
 <XPD:REF name="Head">H5o2n5zye0SGrXGJrVIMtgAA</XPD:REF>
 <XPD:REF name="Tail">dkElEq1CAEqtANKUUNF3MgAA</XPD:REF>
@@ -11788,7 +11791,8 @@ set回originator.
 <XPD:OBJ name="OwnedViews[17]" type="UMLAssociationView" guid="8wt0c305jkGxFL2lKrnrjwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">230,86;228,292</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">230,86;230,292</XPD:ATTR>
 <XPD:REF name="Model">sqRIaXuS6Um2PtcycrxoxwAA</XPD:REF>
 <XPD:REF name="Head">yhpbN8f+aUSPhWi6m8vsGQAA</XPD:REF>
 <XPD:REF name="Tail">dkElEq1CAEqtANKUUNF3MgAA</XPD:REF>
@@ -11872,7 +11876,8 @@ set回originator.
 <XPD:OBJ name="OwnedViews[18]" type="UMLAssociationView" guid="6MI6jgLsP06rIhDSdwvPPgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">596,320;300,325</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">596,325;300,325</XPD:ATTR>
 <XPD:REF name="Model">C4KFv4y7nEO9YBNHtukzmQAA</XPD:REF>
 <XPD:REF name="Head">yhpbN8f+aUSPhWi6m8vsGQAA</XPD:REF>
 <XPD:REF name="Tail">HUKrPcw61UWu5bTi92xmlAAA</XPD:REF>

@@ -133,7 +133,8 @@ tags:  编程哲学
 #### 4.1.4构建者模式
    ![](https://sailorlou.github.io/image/DesignPattern/Builder.png)
 #### 4.1.5原型模式
-    ![](https://sailorlou.github.io/image/DesignPattern/Prototype.png)
+   ![](https://sailorlou.github.io/image/DesignPattern/Prototype.png)
+
 #### 4.1.6单例模式
 - 单线程中
 
